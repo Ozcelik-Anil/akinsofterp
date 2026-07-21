@@ -1,5 +1,32 @@
-# Yerel Obsidian çalışma alanı — repoya girmez
+# ============================================================
+# KVKK / gizlilik: veri, yedek ve kuruluma özel dosyalar
+# repoya ASLA girmez (bkz. CONTRIBUTING.md)
+# ============================================================
+
+# Kuruluma özel gizli desenler (şablon: tools/private-patterns.sample.txt)
+*.local.txt
+
+# Araç çıktıları — GERÇEK fiyat/işletme verisi içerir
+reprice-preview-*.csv
+reprice-draft-*.sql
+cikti/
+*.csv
+
+# Veritabanı dosyaları ve yedekler
+*.mdf
+*.ldf
+*.bak
+*.fdb
+*.gdb
+*.fbk
+
+# Dışa aktarımlar / müşteri dosyaları
+*.xlsx
+*.xls
+
+# Yerel Obsidian çalışma alanı
 akınsoft uzmanı/
 
-# Kuruluma özel gizli desenler (bkz. tools/private-patterns.sample.txt)
-tools/private-patterns.local.txt
+# İşletim sistemi / editör kalıntıları
+Thumbs.db
+.DS_Store
