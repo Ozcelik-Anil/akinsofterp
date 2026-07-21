@@ -1,0 +1,11 @@
+# private-patterns.sample.txt - SABLON.
+# Kopyala -> private-patterns.local.txt (gitignored) ve kendi GERCEK degerlerini yaz.
+# Kuruluma ozel, repoya asla girmemesi gereken string/regex desenleri buraya:
+#   - SQL instance adi, sunucu adi
+#   - gercek is carpani / marj degeri
+#   - ic proje etiketi / ozel kod degeri
+# Satir basina bir regex; '#' ile baslayan satirlar yorumdur.
+# Asagidakiler UYDURMA orneklerdir:
+MYINSTANCE
+9[.,]999
+MYPROJECTTAG
