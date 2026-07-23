@@ -37,7 +37,7 @@
 → *Kilit:* Toplu zam bir **yazma**; UI toplu güncelleme > ham UPDATE (log/eşleme korur). Alt-küme = `MARKASI`. *Yöntem:* önizleme SELECT (`MARKASI=N'X'`), sonra UI *Stok > Toplu Fiyat Güncelleme* veya inert `BEGIN TRAN…ROLLBACK`. *UI:* Toplu Fiyat Güncelleme sihirbazı. ⚠️ Döviz fiyatlıları ayrı ele al.
 
 **Q8 — "Fiyatı en son ne zaman ve kim değiştirdi? Yetkisiz değişiklik oldu mu?"**
-→ *Kilit:* Denetim izi `STOK_FIYAT_DEGISIM_LOG` + `DEGISIM_LOG`. *Yöntem:* log'da `KAYDEDEN`, `KAYIT_TARIHI`, eski/yeni `FIYATI`; kart bazında en son N değişim. *UI:* Stok kartı > Fiyat geçmişi. ⚠️ `KAYDEDEN` kullanıcı adı PII değil; müşteri verisi değil.
+→ *Kilit:* Denetim izi `STOK_FIYAT_DEGISIM_LOG` (68K) + `DEGISIM_LOG`. *Yöntem:* log'da `KAYDEDEN`, `KAYIT_TARIHI`, eski/yeni `FIYATI`; kart bazında en son N değişim. *UI:* Stok kartı > Fiyat geçmişi. ⚠️ `KAYDEDEN` kullanıcı adı PII değil; müşteri verisi değil.
 
 ---
 
@@ -71,7 +71,7 @@
 → *Kilit:* Fire = özel çıkış türü; `STOKHR` çıkışları içinde `TUTAR_TURU`/`ISLEM_TURU` fire kodu ayrımı. *Yöntem:* fire türü çıkışları grupla. *UI:* Sarf/fire fişi. ⚠️ 📖 fire kodunu bir örnek fişte teyit et (`kod-sozlugu`).
 
 **Q18 — "Tedarikçi bazında hangi ürünü kimden daha ucuza alıyorum?"**
-→ *Kilit:* `STOK_TEDARIKCI` eşleşmeleri + gerçek alış (`STOKHR`/alış faturası). *Yöntem:* ürün başına tedarikçi × son alış fiyatı min. *UI:* Stok > Tedarikçiler. ⚠️ Alış tarihleri farklıysa kur/enflasyon etkisini not et.
+→ *Kilit:* `STOK_TEDARIKCI` (23K) eşleşmeleri + gerçek alış (`STOKHR`/alış faturası). *Yöntem:* ürün başına tedarikçi × son alış fiyatı min. *UI:* Stok > Tedarikçiler. ⚠️ Alış tarihleri farklıysa kur/enflasyon etkisini not et.
 
 **Q19 — "Aynı ürünün mükerrer kartı açılmış mı (farklı stok kodu, aynı isim/barkod)?"**
 → *Kilit:* Mükerrer kart = bölünmüş stok/rapor. *Yöntem:* `STOK_ADI`/`BARKODU` normalize edilip `GROUP BY … HAVING COUNT(*)>1`. *UI:* Kart birleştirme. ⚠️ Varyant (beden/renk) kartlarını mükerrerle karıştırma.

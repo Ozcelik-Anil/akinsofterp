@@ -105,10 +105,59 @@ gelsin). → çok-depo [P24](cozum-desenleri.md), transfer [menu-haritasi](menu-
 
 ---
 
-## Sektörel / niş sekmeler (henüz video-damıtılmadı — kurulumda teyit)
-`≈` Performans (önbellek/sorgu davranışı — [dba-performans](dba-performans.md) ile ilişkili) · Servis (teknik
-servis davranışı — [modul-derinlik §3](modul-derinlik.md)) · CRM · Banka · MRP2 · Tıp/Su · Caller ID · Sanal
-Santral. Bir sonraki damıtma turunda `📹`'a yükseltilebilir.
+## Sektörel / niş sekmeler  `📹` (video-damıtıldı; Performans hariç)
+Çekirdek 10 sekmenin (§1-10) yanında sektörel/niş sekmeler — çoğu bir alt-modül/lisans gerektirir.
+
+### 11) Banka Ayarları `📹`
+| Ayar | Ne yapar |
+|---|---|
+| **POST tanım sıralaması** | Post (kredi kartı) tanımlarını bir kritere göre sırala (tanıma göre A→Z / Z→A ters) → ekle → kaydet |
+
+### 12) CRM Ayarları `📹`
+| Ayar | Ne yapar |
+|---|---|
+| **CRM ajandayı randevu paneli olarak kullan** | Ajanda sekmesinde "randevu paneline git" butonu aktif olur |
+| Sadece aktif personelleri göster · grupları ağaç olarak göster | Ajanda/filtreleme görünümü |
+| **Varsayılan aktivite tipi** | Randevu / toplantı / iş / genel hatırlatma |
+
+### 13) Servis Ayarları `📹` (teknik servis davranışı — [modul-derinlik §3](modul-derinlik.md))
+| Ayar | Ne yapar |
+|---|---|
+| Yeni stok hareketinde konumlanma | Barkod / stok kodu |
+| Servis cari/ürün arama kriteri | Ürün adı / marka / model / seri no |
+| İşlem toplamı → servis hareketine aktarım | Bağımsız hareket / hizmet tanımından / işlem tanımından |
+| Teslim alan-eden varsayılan personel | Servis fişinde otomatik gelir |
+| Hızlı satış kullan | Barkod okutunca aynı stok birleştir/ayrı; yeni satır / miktar sütunu |
+| Seri no tekrar kontrolü · fiş yazdırırken stok bilgisi · genel müşteri otomatik · fiş durumu (işleme girdi/tamam/bekleme) · günlük personel azami iş yükü · hareket sıralama | Servis fiş/randevu davranışı |
+
+### 14) MRP2 Ayarları `📹`
+| Ayar | Ne yapar |
+|---|---|
+| Gantt otomatik oluştur/güncelle | Üretim/iş emri planlamada Gantt bilgisi otomatik |
+| İş emri sonuçlandırmada üretim miktarı yuvarla · yeni kayıtta başlama tarihi = sistem tarihi | Üretim emri davranışı |
+
+### 15) Caller ID Ayarları `📹` (arayan numara tanıma)
+| Ayar | Ne yapar |
+|---|---|
+| Ön koşul | Akınsoft **Caller ID Server** programı kurulu olmalı |
+| Caller ID kullan + iletişim portu | Port = CID Server portuyla aynı |
+| Telefon gelince yapılacak işlem | Cari kart aç / yurtiçi satış faturası / servis fişi aç |
+| Arama yaparken işlem · alan kodu · uyarı süresi · aramaları kaydet | Aktivite/müşteri destek kaydı vb. |
+
+### 16) Sanal Santral Ayarları `📹`
+| Ayar | Ne yapar |
+|---|---|
+| Ön koşul | Veri Transferi programında **Sanal Santral lisansı** + ayarları |
+| Dahili numara / App linki | Bir PC'yi çok personel kullanıyorsa buraya dahili yaz (yoksa kullanıcı kaydındaki kullanılır) |
+
+### 17) Tıp/Su Ayarları `📹` (sektörel fiş)
+| Ayar | Ne yapar |
+|---|---|
+| Değişim bilgilerini otomatik aktar | Sor / sormadan otomatik / aktarma |
+| Fiş açınca "teslim edildi" otomatik · depo bölümü + varsayılan depo | Fiş davranışı |
+| Faturalandırmada güncel fiyat kullan | Sor / direkt kullan / kullanma |
+
+> **Performans** sekmesi hâlâ `≈` (önbellek/sorgu davranışı — [dba-performans](dba-performans.md)); altyazısı yok, ekranda teyit.
 
 ---
 
