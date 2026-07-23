@@ -3,6 +3,27 @@
 Bu projenin tüm önemli değişiklikleri burada tutulur.
 Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) esaslıdır; sürümleme [SemVer](https://semver.org/lang/tr/).
 
+## [2.20.0] — 2026-07-23
+### Eklendi (Mode B güvenlik — salt-okunur bağlantı bootstrap'ı)
+- **skill.md — "🔒 READ-ONLY LOGIN BOOTSTRAP" (Connection & Production-Safety altında, Mode B'nin zorunlu İLK adımı):** çoğu kurulumda Windows hesabı sysadmin/dbo olduğu için "salt-okunur"un disipline değil **yapıya** dayanması gerektiği vurgulandı. Adımlar: (1) DBA'nın bir kez oluşturduğu ayrı `wolvox_ro` login + HER `WOLVOX%` DB'sinde **yalnız `db_datareader`** (jenerik SQL; asistan çalıştırmaz, DBA'ya verilir), (2) yalnız bu login'le bağlan (Integrated Security bırak), (3) **KANIT testi** — sıfır-satır UPDATE dene → "permission denied" beklenir + `IS_SRVROLEMEMBER('sysadmin')=0` teyidi. Gitignored yerel profil, Firebird eşdeğeri, ASCII şema. SESSION BOOTSTRAP fact #4 bu bootstrap'a yönlendirildi.
+### Değişti
+- Sürüm 2.19.0 → **2.20.0**. `consistency-check.ps1` PASS.
+
+## [2.19.0] — 2026-07-23
+### Eklendi (native kapsam damıtma kampanyası — resmî eğitim videolarından)
+- **`native-yetenek-indeksi.md` +3 bölüm (§12-14, ~21 satır):** **§12 e-Ticaret/Pazaryeri** (sipariş ödemeleri→Wolvox ERP + Entegrasyon Yönetimi portları, Trendyol/n11/HepsiBurada ürün gönderimi, pazaryeri API, havale/kapıda ödeme, ödeme haritası, kargo tanım/entegrasyon/desi, cari borç sorgulama); **§13 Hızlı Satış/POS** (iade, değişim, gün sonu + KK POS mutabakat, para üstü, veresiye, bekleme online/offline, kasa/stok menüsü, kasa-depo seçimi, çekmece, Market Otomasyonu terazi/ÖKC); **§14 Satınalma/Finans/Veri/Doküman** (Mal Kabul, Banka Online Veri Al [MT940/webservis], şubeler-arası Kasa Transfer Havuzu, Doküman Takip, Excel'den içe aktarım, eksiye-düşen manuel üretim).
+- **`ozel-ayarlar.md` — "Sektörel/niş sekmeler" §11-17 `≈`→`📹`:** Banka, CRM, Servis (zengin), MRP2, Sanal Santral, Caller ID, Tıp/Su ayar sekmeleri video-damıtıldı (Performans hariç, hâlâ ≈). Paketin uzun süredir açık "damıtılmadı" boşluğu kapandı.
+- Kaynak: resmî AKINSOFT eğitim kanalı (yeniden tarama: 1081 video; scope = masaüstü ERP boşlukları + e-Ticaret; cloud/tıp/n8n/niş atlandı). ~34 video damıtıldı; tüm satırlar `📹` (canlı ekranla `✓`'e yükseltilecek). Video ID'leri repo-dışı özel notta.
+### Değişti
+- Sürüm 2.18.0 → **2.19.0**. `consistency-check.ps1` PASS.
+
+## [2.18.0] — 2026-07-23
+### Eklendi (native-first ustalık — skill'in asıl amacı)
+- **`reference/native-yetenek-indeksi.md` — Native Yetenek İndeksi** (yeni pack): *iş-ihtiyacı → yerleşik Wolvox özelliği → menü yolu → güven (`≈`/`📹`/`✓`) → tuzak*, 11 modül (~50 özellik: fiyatlandırma/reprice, stok, fatura, cari, e-Dönüşüm, muhasebe, POS/perakende, depo, üretim, kontrol paneli, servis/İK). "Önce native" refleksinin arama tablosu; mevcut paketlerden (ozel-ayarlar/menu-haritasi/kurulum-playbook) çekirdeklendi. Büyüyen indeks; canlı ekran teyidiyle `≈`/`📹`→`✓`.
+- **skill.md — "ADIM 0: Native-First Kapısı"** (yeni bölüm, PRE-FLIGHT'tan önce): herhangi bir yazma/düzeltme/otomasyon önerisinden ÖNCE yerleşik özelliği ara; **"native-first ama dürüst"** (sınırını kullanıcının kuralına karşı açıkça söyle, kullanıcı seçsin); yalnız EYLEM için (ölçme/teşhis SQL birinci sınıf kalır); öz-denetim/ret deseni. Index reference-listesine + routing tablosuna (STEP 0 satırı) + order-of-operations'a işlendi.
+### Değişti
+- Sürüm 2.17.3 → **2.18.0**. Kaynak: gerçek bir reprice-otomasyonu vakasının dersi — refleks doğrudan SQL script'e gitti, Wolvox'un yerleşik reprice özelliği ancak kullanıcı "bunu Wolvox içinde yapamaz mıyız?" diye zorlayınca ortaya çıktı.
+
 ## [2.17.3] — 2026-07-19
 ### Değişti
 - **LICENSE** telif sahibi: Anıl Özçelik (proje sahibinin tercihi).
