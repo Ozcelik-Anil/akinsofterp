@@ -2,7 +2,7 @@
 
 Akınsoft Wolvox 8/9 ERP Expert / Uzmanı — Claude Skill
 
-[![License](https://img.shields.io/github/license/smurfspec/akinsofterp)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **English** | [Türkçe](#türkçe)
 
