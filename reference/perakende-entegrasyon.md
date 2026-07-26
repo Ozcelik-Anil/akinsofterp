@@ -2,7 +2,9 @@
 
 > Perakende & restoran danışmanlığının çekirdeği: **yeni nesil yazar kasa (ÖKC)** ve **e-Ticaret/pazaryeri**
 > entegrasyonu. Akışlar resmî AKINSOFT eğitim videolarından damıtıldı → `📹` (etiket sözcüğü oto-altyazı
-> kaynaklı olabilir; ekranda teyit). Tablo/kolon iddiası yok — davranış + kurulum + tuzak odaklı.
+> kaynaklı olabilir; ekranda teyit). `👤` işaretli akışlar bayi/danışman/kullanıcı videosundan damıtıldı,
+> resmî AKINSOFT kaynağı değil; versiyon/terim sapması riski daha yüksek. Tablo/kolon iddiası yok —
+> davranış + kurulum + tuzak odaklı.
 > Pazaryeri şema uyarısı için → [modul-derinlik §4](modul-derinlik.md); ayar toggle'ları → [ozel-ayarlar](ozel-ayarlar.md).
 
 ---

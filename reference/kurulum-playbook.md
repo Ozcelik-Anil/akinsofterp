@@ -3,7 +3,9 @@
 > Danışmanın **"sıfırdan kur"** teslimatı. Her playbook: *amaç · ön koşul · adım sırası · doğrulama ·
 > tuzaklar*. Adımların `📹` işaretli olanları **resmî AKINSOFT eğitim videolarından** damıtıldı
 > (akış kaynak-teyitli; etiket sözcüğü oto-altyazı kaynaklı olabilir — ekranda son teyidi yap).
-> `≈` olanlar genel Wolvox bilgisidir. Menü konumu için → [menu-haritasi.md](menu-haritasi.md).
+> `≈` olanlar genel Wolvox bilgisidir. `👤` işaretli olanlar bayi/danışman/kullanıcı videosundan damıtıldı,
+> resmî AKINSOFT kaynağı değil; versiyon/terim sapması riski daha yüksek. Menü konumu için →
+> [menu-haritasi.md](menu-haritasi.md).
 >
 > ⚠️ **Değişmez disiplin:** (1) Her yapısal işlemden **önce yedek** al. (2) Mali/vergi kararlarını
 > **SMMM/entegratör** ile teyit et — bu playbook uygulama akışıdır, mali danışmanlık değil. (3) Danışman

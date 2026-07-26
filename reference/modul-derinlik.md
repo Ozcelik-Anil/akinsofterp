@@ -8,7 +8,8 @@
 > Aşağıda kolon adı verilen yerler **📖 standart tahmin** (isim kalıbından); her biri install'da
 > [schema-map §1 röntgen](schema-map.md) ile **teyit edilmeli**. Kolon uydurmak, UI yolu uydurmak kadar
 > hatalıdır. Değer buradaki **şema listesinde değil, danışmanlık refleksinde**: ne sorulur, hangi tuzak,
-> hangi rapor.
+> hangi rapor. `👤` işaretli notlar bayi/danışman/kullanıcı videosundan damıtıldı, resmî AKINSOFT kaynağı
+> değil; versiyon/terim sapması riski daha yüksek.
 
 ---
 

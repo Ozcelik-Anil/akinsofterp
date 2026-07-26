@@ -218,8 +218,10 @@
 1. Kullanıcı bir **eylem/otomasyon/düzeltme** istedi mi? → önce **bu index'te ara**.
 2. Native varsa: **önce onu ver**, sınırını kullanıcının kuralına karşı **dürüstçe söyle**.
 3. Native yoksa / kuralı tam karşılamıyorsa: ölçme SELECT'i + UI toplu araç **veya** inert migration taslağı; kararı kullanıcıya bırak.
-4. Kullanıcı canlı ekranda teyit ettikçe ilgili satırı `≈`/`📹` → **`✓`** yükselt (sürüm etiketiyle).
+4. Kullanıcı canlı ekranda teyit ettikçe ilgili satırı `≈`/`📹`/`👤` → **`✓`** yükselt (sürüm etiketiyle).
 
-> **Kapsam notu:** bu index resmî eğitim videolarından + genel Wolvox bilgisinden çekirdeklendi; **her
-> özelliği** kapsamıyor. Görülmemiş bir ihtiyaçta: ilgili derin pakete bak, yoksa "yerleşik özelliği ekranda
-> birlikte arayalım" de ve teyit edince buraya yeni satır ekle. Bu dosya **büyüyen** bir indekstir.
+> **Kapsam notu:** bu index resmî eğitim videolarından + genel Wolvox bilgisinden + (niş/az işlenen
+> konularda) bayi/danışman/kullanıcı videolarından (`👤`, versiyon/terim sapması riski daha yüksek)
+> çekirdeklendi; **her özelliği** kapsamıyor. Görülmemiş bir ihtiyaçta: ilgili derin pakete bak, yoksa
+> "yerleşik özelliği ekranda birlikte arayalım" de ve teyit edince buraya yeni satır ekle. Bu dosya
+> **büyüyen** bir indekstir.

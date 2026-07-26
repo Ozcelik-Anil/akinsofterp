@@ -8,7 +8,7 @@
 > **Değişmez zemin (her adımda geçerli):** salt-okunur varsayılan (Mode A) · yazma yetkisi müşteride ·
 > her yapısal işlemden önce **yedek** ([kurulum-playbook §6-C](kurulum-playbook.md)) · PII/KVKK maskele ·
 > mali/vergi kararı **SMMM** ile · uydurma yok (kolon/kod/menü → şema-first / UI teyit) · güven etiketi
-> (✅/📹/📖/⚠️/≈) ile konuş.
+> (✅/📹/📖/⚠️/≈/👤) ile konuş.
 
 ---
 

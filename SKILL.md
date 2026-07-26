@@ -338,13 +338,14 @@ Master tables carry an internal surrogate PK **`BLKODU`** ("blok kodu"). Foreign
 >   housekeeping) + dimension breakdown + highest-leverage actions. Use it when the user asks "how well
 >   am I using Akınsoft / verimli kullanıyor muyum?" or wants a full **system X-ray** (Bootstrap fact #5).
 > - **[`reference/native-yetenek-indeksi.md`](reference/native-yetenek-indeksi.md)** — the **native-first
->   lookup table** (iş-ihtiyacı → yerleşik özellik → menü yolu → güven `≈`/`📹`/`✓` → tuzak), 11 modules.
+>   lookup table** (iş-ihtiyacı → yerleşik özellik → menü yolu → güven `≈`/`📹`/`👤`/`✓` → tuzak), 14 modules.
 >   **STEP 0's primary reference:** open before proposing ANY SQL/script for an action — does Wolvox do it
 >   natively? Present native first, honest about its limits vs the user's rule. Growing index; upgrade rows
 >   to `✓` on live confirmation.
 > - **[`reference/menu-haritasi.md`](reference/menu-haritasi.md)** — the **UI-path catalog** (menü yolları)
 >   with a confidence tier: `≈` general · **`📹` distilled from official AKINSOFT training videos** (flow
->   source-verified, wording may drift from auto-captions) · `✓` field-verified (none yet). Stok/Cari/e-Fatura
+>   source-verified, wording may drift from auto-captions) · `👤` distilled from dealer/consultant/user
+>   videos (not an official AKINSOFT source, higher version/wording drift risk) · `✓` field-verified (none yet). Stok/Cari/e-Fatura
 >   Ayarları/Devir rows are now `📹`. Open when the user asks "nerede bu ekran / hangi menü".
 > - **[`reference/ozel-ayarlar.md`](reference/ozel-ayarlar.md)** — **the settings catalog that governs Wolvox
 >   behavior** (`Özel Ayarlar > <Modül>`). Module-by-module *setting → what it does → consultant trap*,
