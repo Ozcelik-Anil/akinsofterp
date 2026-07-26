@@ -30,3 +30,6 @@ akınsoft uzmanı/
 # İşletim sistemi / editör kalıntıları
 Thumbs.db
 .DS_Store
+
+# Yerel git worktree'leri (superpowers:using-git-worktrees)
+.worktrees/
