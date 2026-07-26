@@ -47,10 +47,10 @@ Denetçinin göremediği, **elle** doğrulanacaklar:
 - **Sayaç iddiaları** (ör. "22 test", "N referans paketi") gerçek sayıyla uyuşmalı.
 
 ## PR kuralları
-- Şema/kod iddiası ekliyorsan **nasıl doğruladığını** yaz (`✅` canlı, `📹` resmî video, `📖` standart).
+- Şema/kod iddiası ekliyorsan **nasıl doğruladığını** yaz (`✅` canlı, `📹` resmî video, `📖` standart, `👤` niş/bayi/danışman videosu).
 - `skill.md` davranışını değiştiren PR, `dogrulama-testleri.md`'deki 22 senaryonun hâlâ geçtiğini belirtmeli.
 - Sürüm: davranış/şema değişikliği → `CHANGELOG.md` + SemVer bump. **`tools\consistency-check.ps1` exit 0 olmalı.**
-- Menü yolu ekliyorsan (`menu-haritasi.md`) güven etiketi koy (`≈` genel / `📹` video / `✓` saha-teyitli + 8/9).
+- Menü yolu ekliyorsan (`menu-haritasi.md`) güven etiketi koy (`≈` genel / `📹` video / `👤` niş video / `✓` saha-teyitli + 8/9).
 
 ## Issue açarken
 Sürüm (8/9), edisyon, motor (MSSQL/Firebird) ve — mümkünse — **maskeli** bir örnek belirt.

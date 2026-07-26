@@ -60,6 +60,22 @@ install'da doğrula. **Reçete→sarf→STOKHR** zincirini bir üretim emrinde u
 - **SKT** yerleşik alan mı yoksa **Özel Tanımlar** ile mi açılmış? (`📹` Stok kartı Özel Tanımlar > tarih alanı — çok yaygın pratik)
 - FEFO/FIFO çıkış zorlanıyor mu, yoksa operatör elle mi seçiyor?
 
+**Seri No ↔ Lot farkı ve giriş ekranı** `👤`: seri no **bir ürüne (tekil birime) özel**dir; lot numarası
+**aynı üründen birden çok adede** verilebilir. Pratik sonucu: izleme tipi **Seri No** olan bir kartta
+`Seri Lot Giriş Hareketi` ekranında **`Miktar` alanı pasif gelir** (her hareket 1 birim sayılır) ve
+yerine **`Toplu Giriş`** butonu aktifleşir — çok adetli seri girişi oradan yapılır.
+
+Ekran `Seri Lot Giriş Hareketi` (👤 tam menü yolu install'da doğrulanmalı — kaynak video yalnızca ekran
+adını gösteriyor): `Stok Bul` > Seri/Lot · Cari Kodu · Miktar · Depo · **daha önce seri no'suz yapılmış
+bir stok hareketiyle eşleştirme** · Özel Kod · İşlem Tarihi · **Garanti Tarihi** · **Son Kullanma
+Tarihi** · Açıklama > Kaydet. Üstte **`Bakiye`** (seri/lot bakiyeleri) · **`Eski Hareketler`** ·
+**`Etiket`** (etiket çıktısı ekranına yönlendirir). Giriş/çıkış ayrıca **alış faturası · gelen irsaliye ·
+satış faturası · giden irsaliye** üzerinden de yapılabilir — modülden bağımsız tek nokta yoktur, ikisi
+de aynı bakiyeyi besler.
+
+→ Bu, yukarıdaki "SKT yerleşik alan mı yoksa Özel Tanımlar ile mi açılmış?" sorusunu netleştirir:
+seri/lot modülü kullanılıyorsa **SKT yerleşik alandır** (Özel Tanımlar'a gerek yok).
+
 **Tipik tuzaklar:**
 - Seri/lot **girişte** tutulup **çıkışta** eşleştirilmiyor → izlenebilirlik zinciri kopuk.
 - SKT Özel Tanımlar'daysa **raporlanabilir ama uyarı vermez** (satışta "son 30 gün" alarmı yok) → süresi geçmiş satış.

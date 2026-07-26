@@ -195,6 +195,31 @@ yetkileri ata. → denetim izi [P18](cozum-desenleri.md).
 > Reprice/toplu güncelleme/devir öncesi müşteriye **bu ekrandan manuel yedek** aldır; geri yüklemeyi
 > **asla danışman körlemesine yapmaz** (geri döndürülemez).
 
+**D) Şube sistemi ve offline — kapsam kuralı ve tuzaklar** `👤` (A-8'deki `Şube İşlemleri` iskeletini tamamlar)
+
+- **Kapsam kuralı:** tüm veriler **aynı veritabanında** kalır, şube başına ayrı şirket kaydı açılmaz;
+  raporlar tek ekrandan tüm şubeleri görebilir. Paylaşım: **stok kartları tüm şubelerde ortaktır**;
+  **envanter, kâr/zarar vb. şube bazında** tutulur; **cari kartları ve döviz hareketleri isteğe bağlı
+  ortak** (şube kaydındaki ilgili kutular — bkz. A-8 "ortak modüller"); şube destekleyen diğer modüller
+  **tamamen şubeye özel** çalışır. (Şema izi: `SUBE_KODU`.)
+- **Tuzak 1 — personel ataması:** şube kaydındaki **`Personel Atama`** alanına **hiç personel
+  aktarılmazsa, TÜM personel o şubeyi görmeye yetkili sayılır.** "Şube açtık ama herkes her şubeyi
+  görüyor" şikâyetinin sebebi budur — boş bırakmak "kimse" değil, "**herkes**" demektir.
+- **Tuzak 2 — offline yetkileri:** `Kontrol Paneli > Kullanıcı Yetkilendirme`'de **`Offline`** alanı
+  işaretlenip alt yetkiler belirlenir; **ancak `Wolvox veri tabanını komple gönder` işaretliyse
+  alttaki granüler yetkiler geçersiz sayılır** (kullanıcı her şeyi indirir). KVKK açısından da
+  önemli: offline makineye tüm cari PII'si iner.
+- **Geçmiş veriyi şubeye bağlama:** sistem daha önce şubesiz kullanıldıysa, şube kaydı ekranının
+  **üst kısmındaki buton** ile geçmiş kayıtlar **Merkez** şubeye (veya seçilen şubeye) eşitlenir.
+  Aynı kalıp depo tarafında da var — depo kartındaki **`Eşitle`** butonu (deposuz geçmiş hareketleri
+  bir depoya bağlar) → [native-yetenek-indeksi §8](native-yetenek-indeksi.md).
+- **Offline veri al/gönder akışı:** ön koşul → şirket kaydında **"bu şirket için offline kullanıma
+  izin ver"** (A-3) + offline makineye **Kontrol Paneli de kurulmalı** + giriş ekranında **offline
+  modu** seçilerek girilmeli. Kullanım → `Diğer İşlemler > **Offline Veri Al/Gönder**` > **ana
+  bilgisayar IP** · **Kontrol Paneli port numarası** · kullanıcı adı/parola > **`Bağlan`** > **`Veri
+  Al`** (personelin yetkisi dahilindeki veriler iner) — veri gönderimi de aynı ekrandan. Şema izi:
+  `OFFLINE_DURUM` / `OFFLINE_GUID` / `SOURCE_APP`.
+
 ## Playbook seçim refleksi
 | Müşteri diyor ki | Playbook |
 |---|---|

@@ -85,6 +85,53 @@ yönde** senkron, çakışmada kim kazanır? Sipariş hangi belgeye düşüyor? 
 
 ---
 
+## 3) Wolvox Restoran (adisyon / garson / kurye)  `👤`
+
+> Referansta yalnızca stok kartı `Özel Ayarlar 1 > e-Ticaret ve Restoran` kutusu ve
+> [kurulum-playbook](kurulum-playbook.md)'ta edisyon adı olarak geçiyordu; **kullanım akışı burada ilk kez**.
+> Bayi videosundan damıtıldı → `👤` (resmî AKINSOFT kaynağı değil; ekranda teyit).
+
+### a) Garson ekranı — iki katmanlı yetkilendirme
+Bir garsonu devreye almak **iki ayrı yerde** kayıt gerektirir; biri eksikse garson programa giremez:
+1. **ERP tarafı:** `Finans Yönetimi > Tanımlar > Cari Tanımları` > garson için cari kart aç (ad-soyad) >
+   **`Özel Bilgiler`** sekmesi (👤 kaynak video "Özel Bilgiler 2" diyor — ekranda teyit et, kanonik ad
+   büyük olasılıkla eksiz) > **`Garson`** kutusunu işaretle > **garsona ait şifreyi** ilgili alana
+   gir > Kaydet.
+2. **Kontrol Paneli tarafı:** `Kullanıcı İşlemleri > Kullanıcı Kayıt İşlemleri` ile kullanıcıyı
+   oluştur > `Kullanıcı Yetkilendirme` > önce **`Restoran`**, sonra **`Restoran Programı Kullanımı`**
+   işaretle > verilecek yetkileri seç > **`Yetkileri Kaydet`**.
+
+Girişte sırayla: Kontrol Paneli kullanıcı adı/şifresi → **şirket seçimi** → **bölüm seçimi** →
+ardından **cari karttaki garson şifresi**. Garson yalnızca yetkisi dahilindeki alanları görür. Ekran
+**dokunmatik monitöre tam destek** verir.
+
+### b) Kurye / paket ekranı
+Masaya (adisyon) değil, **paket/eve servis** satışlarını izler; self-servis ve eve servis yapan
+işletmeler için. Akış adisyonla aynıdır: **`Paket`** butonu > **`Yeni Sipariş`** (her sipariş için
+yeni kayıt). Yetki: `Kontrol Paneli > Kullanıcı İşlemleri > Kullanıcı Yetkilendirme > Restoran >
+**`Kurye Ekranı Kullanımı`** > `Yetkileri Kaydet`` — bu yetkiyle giren personelin karşısına doğrudan
+kurye ekranı gelir. `Menü > Kurye Ekranı`'ndan **kurye giriş/çıkış takibi** yapılır.
+
+### c) Caller ID köprüsü
+Caller ID cihazı bağlıysa müşteri aradığında **telefon çağrısı uyarısı** açılır; uyarıya tıklayınca
+kayıtlı müşteri için **`Fiş Aç`**, kayıtsız için **`Yeni Cari Kartı Aç`** denerek sipariş doğrudan
+alınır. [ozel-ayarlar §15 Caller ID Ayarları](ozel-ayarlar.md)'nın restoran karşılığı — Caller ID'nin
+en somut iş değeri burada.
+
+**Danışman soruları:** garson **iki yerde de** (cari kart + Kontrol Paneli) tanımlı mı? Kurye ekranı
+yalnızca paket/eve servis siparişleri için mi kullanılıyor, adisyonla karıştırılıyor mu? Caller ID
+cihazı fiziksel olarak bağlı ve tanımlı mı?
+
+**Tipik tuzaklar:**
+- ⚠️ "Garson giriş yapamıyor" çağrısında **hangi şifreyi** girdiğine bak — iki farklı şifre vardır
+  (Kontrol Paneli kullanıcı şifresi ≠ cari karttaki garson şifresi).
+- Kontrol Paneli tarafında `Restoran` yetkisi işaretlenmeden `Restoran Programı Kullanımı`
+  işaretlenirse garson yine giremeyebilir — sıra **önce Restoran, sonra alt yetki**.
+- Kurye ekranı yetkisi olmayan personel paket siparişini adisyon ekranından girmeye çalışır →
+  kurye giriş/çıkış takibi eksik kalır.
+
+---
+
 ## Perakende danışman refleksi
 | Müşteri diyor ki | Bak |
 |---|---|
@@ -93,6 +140,7 @@ yönde** senkron, çakışmada kim kazanır? Sipariş hangi belgeye düşüyor? 
 | "Sitedeki fiyat/KDV yanlış görünüyor" | §2a (panel KDV/etiket ayarları) |
 | "Müşteri taksidini siteden ödeyemiyor / Wolvox'a düşmüyor" | §2b (sanal POS ↔ taksit eşleştirme) |
 | "Pazaryerinde ürün listelenmiyor / aynı ürün iki yerde satıldı" | §2c (grup/kategori, overselling) |
+| "Garson/kurye programa giremiyor" | §3a/§3b (iki katmanlı yetkilendirme, şifre karışıklığı) |
 
 > Kâr analizi için komisyon/kargo/ÖKC türü ayrımı [rapor-sablonlari](rapor-sablonlari.md) bulgu tablosuna
 > girer; kanal bazlı kârlılık **komisyon düşülmüş** hesaplanmalı.

@@ -3,6 +3,19 @@
 Bu projenin tüm önemli değişiklikleri burada tutulur.
 Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) esaslıdır; sürümleme [SemVer](https://semver.org/lang/tr/).
 
+## [2.21.0] — 2026-07-26
+### Eklendi (niş YouTube damıtma kampanyası — resmî kanal dışı kaynaklar)
+- **Yeni güven etiketi `👤`** ("bayi/danışman/kullanıcı videosundan damıtıldı, resmî AKINSOFT kaynağı değil; versiyon/terim sapması riski daha yüksek") — `native-yetenek-indeksi.md` ve `menu-haritasi.md` lejantlarına, `CONTRIBUTING.md`'nin iki PR-etiket listesine eklendi.
+- **`reference/native-yetenek-indeksi.md` +59 satır:** §1 Fiyatlandırma, §2 Stok, §3 Fatura/Satış, §4 Cari/Alacak, §8 Depo, §9 Üretim, §10 Kontrol Paneli, §13 Hızlı Satış/POS, §14 Satınalma/Finans bölümlerine dağılmış yeni satırlar.
+- **`reference/menu-haritasi.md` +14 yol satırı + yeni "Oto-altyazı sözlüğü" bloğu:** YouTube oto-altyazısının sık yanlış-transkribe ettiği Wolvox terimleri/ekran adları için düzeltme sözlüğü.
+- **`reference/modul-derinlik.md` §2:** Seri No ↔ Lot ayrımı ve `Seri Lot Giriş Hareketi` ekranı üzerine yeni açıklayıcı not.
+- **`reference/kurulum-playbook.md` §6 (D):** yeni alt-bölüm — şube (branch) sistem kapsam kuralları ve offline-erişim tuzakları.
+- **`reference/perakende-entegrasyon.md` — yeni §3 "Wolvox Restoran":** garson/kurye/Caller ID akışları — önceden pakette dokümante edilmemiş bir ürün alanı.
+- Kaynak: ~35 niş/bayi YouTube kanalı tarandı (bir bayi kanalı tohum olarak kullanıldı + keşfedilen ~26 ek kanal), 35 video transkripti damıtıldı. Video ID'leri/kanal adları KVKK ve kapsam disiplini gereği repoda değil, yalnızca gitignored yerel bir takip dosyasında tutuluyor.
+- **Bu turda bilinçli olarak birleştirilmedi:** Wolvox Otel (otel) ürün ailesine dair ~3 bulgu — farklı bir ürün, olası ayrı/özel bir kampanyaya bırakıldı; belirsiz resmî-mi/bağımsız-mı statülü 9 aday kanal — insan kararı bekleniyor, hariç tutuldu.
+### Değişti
+- Sürüm 2.20.0 → **2.21.0**. `consistency-check.ps1` PASS.
+
 ## [2.20.0] — 2026-07-23
 ### Eklendi (Mode B güvenlik — salt-okunur bağlantı bootstrap'ı)
 - **skill.md — "🔒 READ-ONLY LOGIN BOOTSTRAP" (Connection & Production-Safety altında, Mode B'nin zorunlu İLK adımı):** çoğu kurulumda Windows hesabı sysadmin/dbo olduğu için "salt-okunur"un disipline değil **yapıya** dayanması gerektiği vurgulandı. Adımlar: (1) DBA'nın bir kez oluşturduğu ayrı `wolvox_ro` login + HER `WOLVOX%` DB'sinde **yalnız `db_datareader`** (jenerik SQL; asistan çalıştırmaz, DBA'ya verilir), (2) yalnız bu login'le bağlan (Integrated Security bırak), (3) **KANIT testi** — sıfır-satır UPDATE dene → "permission denied" beklenir + `IS_SRVROLEMEMBER('sysadmin')=0` teyidi. Gitignored yerel profil, Firebird eşdeğeri, ASCII şema. SESSION BOOTSTRAP fact #4 bu bootstrap'a yönlendirildi.

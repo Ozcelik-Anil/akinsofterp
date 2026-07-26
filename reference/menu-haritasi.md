@@ -12,6 +12,8 @@
 > - **`✓`** — belirli bir sürümde (8/9) **saha/canlı ekran teyitli**. İlk saha koşusu **25.07.2026**'da
 >   **Wolvox 8 ERP s8.25.23 (sektörel/otomotiv paketi)** üzerinde salt-okunur yapıldı; o koşuda görülen
 >   satırlar `✓ (8.25)` etiketlidir. Doğruladıkça `📹`/`≈`→`✓` yükselt ve sürüm etiketle.
+> - **`👤`** — bayi/danışman/kullanıcı videosundan damıtıldı, resmî AKINSOFT kaynağı değil; versiyon/terim
+>   sapması riski daha yüksek. Canlı ekranla teyit edilince `👤`→`✓`.
 >
 > ⚠️ **Saha koşusunun en önemli çıktısı: üst menü yapısı `📹` varsayımından farklı.** Wolvox 8'de
 > `Fatura`, `İrsaliye`, `Sipariş`, `Çek/Senet`, `e-Dönüşüm` diye **bağımsız üst menüler yoktur**.
@@ -106,6 +108,8 @@ Dal yapısı `✓ (8.25)`:
 | **Ölü / hareket görmeyen stok raporu** | `✓ (8.25)` | `Stok Yönetimi > Raporlar > Analizler > **İşlem Görmeyen Stoklar**` (komşuları: Stok Kar/Zarar Raporu · (Basit) · (Özel) · Dönemsel Giriş/Çıkış · **Stok Yeterlilik Raporu** · Stok Özel Rapor · Stok Hareket Analizi · (Aylık)) | sorgu-recetesi (ölü stok) · P10 |
 | Mükerrer barkod tespiti | `≈` | *(native rapor yok)* → SQL ile ver | P12 |
 | **Fiyat değişim geçmişi — önce loglamayı aç** | `✓ (8.25)` | `Genel Ayarlar > Stok Ayarları > Genel > **Stok Fiyat Loglama**` (`Loglama Türü` + `Loglama Süresi … Gün`). ⚠️ Varsayılan **`Hayır`** olabilir — kapalıysa **geçmiş hiç tutulmaz**; "fiyatı kim değiştirdi" sorusuna cevap istiyorsan önce bunu açtır (ileriye dönük çalışır, geçmişi geri getirmez) | P18 (denetim izi) |
+| Lokasyon (raf/koridor) tanımı ve hareketi | `👤` | Tanım: `Stok Yönetimi > Tanımlar > Depo ▸ > depo > **Lokasyon Bilgileri** > Alt Lokasyon Ekle`; hareket: `Stok Yönetimi > İşlemler > **Depo İşlemleri ▸**` | native-index §8 |
+| Depo kartı sekmeleri | `👤` | `Stok Yönetimi > Tanımlar > Depo ▸` > adı/yetkilisi/iletişim · `Aktif` (pasife alma) · **`Terminal Yetkileri`** · **`Kullanıcı Yetkileri`** · üstte **`Eşitle`** (deposuz geçmiş hareketleri bu depoya bağla) | native-index §8 |
 
 ## Finans Yönetimi (Cari · Kasa · Banka · Çek/Senet)
 Dal yapısı `✓ (8.25)`:
@@ -124,6 +128,8 @@ Dal yapısı `✓ (8.25)`:
 | — Yetkililer sekmesi | `📹` | Kişi · dahili · görev · departman · cep → toplu SMS / mutabakat mektubu bu kişilere gider | P7 |
 | — Özel Bilgiler sekmesi | `📹` | Banka · e-posta · **Rota grubu/sıra/kod** (sıcak satış saha) · **fatura adresi ≠ sevk adresi** · pazarlamacı sistemini kullan (+şifre) | — |
 | — Bakiye/Kredi sekmesi > **Devir Girişi** | `📹` | Açılış bakiyesi (borç/alacak) devir girişiyle işlenir (vergi no zorunlu) | sorun-giderme §6 · P21 |
+| — Bakiye/Kredi sekmesi > **Kredi Limitleri** | `👤` | `Bakiyeler` (TL + döviz) · **`Kredi Limitleri`** (açık hesap / sipariş / irsaliye / çek-senet ayrı ayrı + `Kredi Aşımında Uyar`) · **`Çek/Senet Limitleri`** | native-index §4 |
+| — **Bonus** sekmesi (Bonus Sistemi açıksa) | `👤` | Bonus tanımı seçimi + bonus bakiyesi | native-index §4 · Kampanya/Sadakat tablosu |
 | — Üst menü: Yeni İşlem / Kopyala | `📹` | `Yeni İşlem` → fatura/teklif/sipariş/servis/tahsilat/ödeme · `İşlemler > Kopyala` (kartı çoğalt) · `Dosya` sekmesi (**Cari II** modülü) | — |
 | Ekstre / hesap özeti | `≈` | `Finans Yönetimi > Raporlar > İşlem Raporları ▸` (ekstre burada; ekranda teyit et) | sorun-giderme §3 · P7 |
 | Yaşlandırma (vade analizi) | `≈` | `8.25` menüsünde "Yaşlandırma" adıyla **görülmedi**; en yakınları `Raporlar > Bakiye Raporları > Bakiyeler Listesi` ve `Analizler > Cari Analizi` / `Finansal Analiz > Detaylı`. Vade kırılımı yoksa SQL ile ver | P9 |
@@ -131,6 +137,7 @@ Dal yapısı `✓ (8.25)`:
 | Toplu cari işlem | `✓ (8.25)` | `Finans Yönetimi > İşlemler > **Toplu Cari Hareket**`; mükerrer kart temizliği için `İşlemler > **Cari Tanım Birleştirme**`; hesaplar arası aktarım `İşlemler > **Cari Virman**` | P17 |
 | 90+ gün hareketsiz cari | `✓ (8.25)` | Native karşılığı: `Raporlar > Bakiye Raporları > **Hareketli Bakiyeler Listesi**` (hareket tarihine göre filtre) — "Hareketsiz Cariler" adlı ayrı rapor **yok** | skill 5C (PII maskeli) · P15 |
 | Atanan fiyat listesi | `📹` | Cari kartı > `Hesap Bilgileri` > fiyat no (`STOK_FIYATI` = FIYAT_NO) | P4 (müşteri-doğru fiyat) |
+| Taksit planı kur / taksit tahsil et | `👤` | `Finans Yönetimi > İşlemler > **Taksit İşlemleri** ▸ Yeni Taksit Girişi` — `8.25` saha dal listesinde görülmedi, **edisyon/lisansa bağlı** olabilir | native-index §4 |
 
 ## Belge zinciri: Satın Alma Yönetimi vs Satış Yönetimi
 ⚠️ **Tek bir `Fatura`/`İrsaliye`/`Sipariş`/`Teklif` menüsü yoktur.** Aynı dört belge tipi **iki ayrı
@@ -156,16 +163,18 @@ modülde** yaşar; hangisini kullanacağını **yön** belirler (alış mı sat�
 | Sipariş → irsaliye/fatura | `≈` | `<Satış\|Satın Alma> Yönetimi > İşlemler > Siparişler ▸` | P6 (belge zinciri) |
 | Açık/kapanmamış sipariş | `≈` | `<Satış\|Satın Alma> Yönetimi > Raporlar >` (ana ekran kısayolu: **`Sipariş Raporu`**) | P6 · P13 |
 | Teklif → sipariş | `≈` | `<Satış\|Satın Alma> Yönetimi > İşlemler > Teklifler ▸` | P28 (dönüşüm oranı) |
+| Satın alma talebi (siparişin üst akışı) | `👤` | `Satın Alma Yönetimi > … > **Satın Alma Talep Ekranı**` (+ `Satın Alma Talep Listesi` > `Satın Alma` > `Satın Alma Emri Ver`) | native-index §14 |
 
 ## Kasa / Banka / Çek-Senet
 | İşlem | Güv. | Yol | İlgili reçete/desen |
 |---|---|---|---|
 | Kasa işlemleri | `✓ (8.25)` | `Finans Yönetimi > İşlemler > Kasa İşlemleri ▸` (tanım: `Tanımlar > Kasa Tanımları`) | — |
 | Banka hesap/işlem | `✓ (8.25)` | `Finans Yönetimi > İşlemler > Banka İşlemleri ▸` (tanım: `Tanımlar > Banka Tanımları`) | — |
-| Tahsilat / ödeme | `✓ (8.25)` | `Finans Yönetimi > İşlemler > **Tahsilatlar ▸** / **Tediyeler ▸**` | — |
+| Tahsilat / ödeme | `✓ (8.25)` | `Finans Yönetimi > İşlemler > **Tahsilatlar ▸** / **Tediyeler ▸**`. `👤`: bazı kurulumlarda alt öğe adı `Cari Ödeme` yerine **`Cari Tediye`** görünür — sürüme/kuruluma göre değişir | — |
 | Çek/senet portföy & giriş | `✓ (8.25)` | `Finans Yönetimi > İşlemler > **Çek/Senet İşlemleri**` (teminat için ayrıca `Teminat Çeki/Senedi`, basım için `Seri Senet Basımı`) | P14 (`EVRAK_DURUMU`) |
 | Vadesi gelen çek/senet | `✓ (8.25)` | `Finans Yönetimi > Raporlar > **Çek/Senet Raporları ▸**` | P9 |
 | Döviz kuru girişi/takibi | `✓ (8.25)` | `Finans Yönetimi > Tanımlar > **Döviz Tanımları**`; hareket `İşlemler > Döviz İşlemleri ▸`; rapor `Raporlar > Döviz Raporları ▸` | `DOVIZ` tablosu (bayat kur tuzağı) |
+| Banka kartı sekmeleri | `👤` | `Finans Yönetimi > Tanımlar > Banka Tanımları` > **`Alt Hesaplar`** · **`POS`** · **`Kredi Kartı`** · **`Çek`** (satır kaydı için sekmenin **küçük** `Kaydet`i, kart için alttaki **büyük** `Kaydet`) | native-index §14 |
 
 ## e-Dönüşüm  *(8'de ayrı üst menü YOK — belgenin altında yaşar)*
 ⚠️ **`e-Dönüşüm` diye bir üst menü yoktur.** e-Fatura, ilgili modülün fatura dalının içindedir:
@@ -213,6 +222,8 @@ Bu yüzden `_WOLVOX` DB'sine bakıp "muhasebe kullanılmıyor" demek **yanlış 
 | Müşteriye özel iskonto/fiyat listesi | `📹` | Cari kartı > `Hesap Bilgileri` > özel iskonto % + fiyat no |
 | Kart bazlı iskonto | `✓ (8.25)` | Stok kartı > `Özel Ayarlar 1` > Alış/Satış İskontoları |
 | Kampanya/promosyon · sadakat/puan modülü | `≈` | Bu pakette **yok**; edisyona bağlı — kullanıcının menüsünde ara |
+| **Bonus (sadakat) tanımları** | `👤` | `Finans Yönetimi > Tanımlar > **Bonus Tanımları**` — `8.25` saha listesinde görülmedi, edisyona bağlı olabilir (native-index §4) |
+| Bonus sistemi anahtarı + matrah + ödeme türü | `👤` | `Yetkili > Tanımlar > Genel Ayarlar > **Cari Ayarları > Cari Kart Ayarları**` > `Bonus Sistemi Kullan` · fatura bonus matrahı · bonus ödeme türü (native-index §4) |
 
 ## Yetkili (yönetim · ayarlar · KVKK · log)
 Dal yapısı `✓ (8.25)` — **`Yönetim` / `Ayarlar` adlı bir üst menü yoktur, hepsi `Yetkili` altındadır:**
@@ -230,6 +241,10 @@ Dal yapısı `✓ (8.25)` — **`Yönetim` / `Ayarlar` adlı bir üst menü yokt
 | — ① Fatura Ayarları sekmeleri | `✓ (8.25)` | `Satış Faturası` · `Alış Faturası` · `Fatura Sabitleri` · `Ek Kesintiler` · `Masraf Faturası` (varsayılan iskonto/KDV/vade/döviz/numaralandırma) | — |
 | — ① Stok Ayarları sekmeleri | `✓ (8.25)` | `Stok Kart Ayarları` · `Stok Hareket Ayarları` · `Genel` | — |
 | — ① Cari Ayarları sekmeleri | `✓ (8.25)` | `Cari Kart Ayarları` · `Cari Hareket Ayarları` (alt sayfa 1/2) | — |
+| Seri/Lot izleme tipi + maliyet eşleştirme | `👤` | `Yetkili > Tanımlar > Genel Ayarlar > **Stok Ayarları > Seri/Lot**` > İzleme Tipi · **Maliyetlerde eşleştirme yöntemini kullan** · zorunlu seri/lot girişi · satışta SKT kontrolü | native-index §2 |
+| Sipariş stok rezervasyonu | `👤` | `Yetkili > Tanımlar > Genel Ayarlar > **Sipariş Ayarları** > Stok Bloke` (varsayılan `Hayır`) → `SIPARIS.STOK_BLOKE` | native-index §3 |
+| Cari limit kontrolleri (fiilen bloke etme) | `👤` | `Yetkili > Tanımlar > Genel Ayarlar > **Cari Ayarları > Cari Hareket Ayarları**` > limit aşımına izin verme · ciro edilen çek/senet kuralı + opsiyon gün · vadesinde ödenmeyen bakiye kontrolü + tolerans günü | native-index §4 |
+| Fatura numarası/açıklama otomasyonu | `👤` | `Yetkili > Tanımlar > Genel Ayarlar > **Fatura Ayarları**` > `fatura numarasını otomatik ver` · açıklama `otomatik oluştur` | native-index §3 |
 | **② Özel Ayarlar** (modül davranış anahtarları) | `✓ (8.25)` | **`Yetkili > Özel Tanımlar > Özel Ayarlar`** → sol ağaç: `Genel Ayarlar` · **`Performans Ayarları`** · `Cari Ayarları` · `Stok Ayarları` · **`Depo Ayarları`** · `Çek/Senet Ayarları` · **`Fatura Ayarları`** · `İrsaliye Ayarları` · `Teklif Ayarları` · `Sipariş Ayarları` · `Banka Ayarları` · **`Caller ID`** · **`Sanal Santral`**. Butonlar: **`Değişiklikleri Kaydet`** / **`Kaydetmeden Kapat`** (bu ikili, hangi ağaçta olduğunun en hızlı işareti) | **ozel-ayarlar.md (tam katalog)** |
 | — ② Fatura Ayarları sekmeleri | `✓ (8.25)` | `Satış Faturası` · **`Alış Faturası`** (← reprice tetiği burada) · `Fatura Genel` · `Masraf Faturası` | ozel-ayarlar §4 |
 | — ② Genel Ayarlar sayfası | `✓ (8.25)` | Program Tanımı · mesaj tipi · form başlığı/tema · uyarı penceresi (yenileme aralığı, uyarı sesi) · `Açılışta Yönetici Ekranını Göster` · pencere gösterimi · **Otomatik Sürüm Kontrol** · PDF otomatik adlandırma · POP3 · "stok fiyatı para birimi" · "barkod/stok kodu aramasında pasif stokları dahil et" · "tarih değişince döviz kurlarını yeniden aktar" | ozel-ayarlar §1 |
@@ -252,6 +267,14 @@ Dal yapısı `✓ (8.25)` — **`Yönetim` / `Ayarlar` adlı bir üst menü yokt
 | Otomatik görev/e-posta planlayıcı | `≈` | ERP'de bu adla **yok**; yerine `Yetkili > Tanımlar > **Uyarıcı/Hatırlatıcı Ayarları**` ve `Finans > Raporlar > Analizler > Finansal Analiz > **Otomatik Talimat Kontrol**` | skill 5A |
 
 ---
+
+## Oto-altyazı sözlüğü (`👤` bayi videolarını okurken)
+> 🔤 Bu kampanyada (niş/bayi YouTube kaynakları) tekrar eden oto-altyazı bozulmaları — bir bayi
+> videosundan yol çıkarırken bu listeyi kontrol et, kanonik adı kullan:
+> `Fatura Yerleri` → **Fatura Ayarları** · `volvoks / wallwox / bolbox` → **Wolvox** ·
+> `stop / sok / soku` → **stok** ·
+> `kek / koça` → **çek / koçan** · `incir ulanan` → **ciro edilen** · `Atlas/akla (terazi)` → **Aclas** ·
+> `telep/telef` → **talep**.
 
 ## Bilinen 8 vs 9 farkları (genel bilgi — kurulumda teyit et)
 > Bunlar ürün-genel gözlemlerdir, sürüm-teyitli değildir; kullanıcının ekranıyla doğrula.

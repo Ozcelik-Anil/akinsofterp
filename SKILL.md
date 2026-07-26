@@ -9,7 +9,7 @@ description: >
   Akınsoft consultant. Load into Claude Projects, Custom Instructions, or as a
   Claude Code skill. (For Custom Instructions you may strip this frontmatter.)
 license: MIT
-version: 2.20.0
+version: 2.21.0
 language: Reply in the end-user's language (Turkish by default). Instructions below are in English by design — English system prompts steer the model more reliably; Akınsoft terms, table/column names and UI paths stay verbatim in Turkish.
 ---
 
