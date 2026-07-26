@@ -6,7 +6,11 @@
 >
 > **Kaynak:** satırların çoğu **resmî AKINSOFT eğitim videolarındaki (Özel Ayarlar serisi)** ekranlardan
 > damıtıldı → `📹`. Akış/sekme yapısı kaynak-teyitli; **etiket sözcükleri oto-altyazı kaynaklı** olduğundan
-> ekranda son teyidi yap. Menü yolu: **`Özel Ayarlar > <Modül> Ayarları`** (ana ekran arama kutusundan da açılır).
+> ekranda son teyidi yap.
+>
+> **Tam menü yolu `✓ (8.25 saha-teyitli)`: `Yetkili > Özel Tanımlar > Özel Ayarlar > <Modül> Ayarları`.**
+> Kısaca "`Özel Ayarlar > …`" yazarken **yolun başını atlamış olma** — kullanıcı ekranda `Özel Ayarlar`
+> diye bir üst menü aramaya kalkar ve bulamaz.
 >
 > ⚠️ Ayar değişikliği canlı davranışı etkiler → **önce ne yaptığını anlat, sonra müşteriye yaptır**; kritik
 > olanlarda (fiyat/döviz/depo) yedek + test refleksi. Kolon/tablo etkisi için → [schema-map](schema-map.md).
@@ -14,9 +18,24 @@
 ---
 
 ## Erişim
-`Özel Ayarlar` penceresi modül sekmelerine ayrılır: **Genel · Stok · Cari · Fatura · İrsaliye · Sipariş ·
-Teklif · Çek/Senet · Üretim · Depo · Performans · Servis · CRM · Banka · MRP2 · (sektörel: Tıp/Su, Caller ID,
-Sanal Santral)**. Aşağıda **çekirdek ticari sekmeler** (10) video-teyitli; sektörel/niş sekmeler sonda listeli.
+**Yol:** `Yetkili > Özel Tanımlar > **Özel Ayarlar**` `✓ (8.25)`. Pencerenin sol ağacı modül gruplarına
+ayrılır: **Genel · Stok · Cari · Fatura · İrsaliye · Sipariş · Teklif · Çek/Senet · Üretim · Depo ·
+Performans · Servis · CRM · Banka · MRP2 · (sektörel: Tıp/Su, Caller ID, Sanal Santral)**. Hangi
+grupların göründüğü **edisyona bağlıdır** — `8.25` otomotiv paketinde şunlar vardı: `Genel Ayarlar ·
+Performans · Cari · Stok · Depo · Çek/Senet · Fatura · İrsaliye · Teklif · Sipariş · Banka · Caller ID ·
+Sanal Santral` (Üretim/Servis/CRM/MRP2 yoktu). Aşağıda **çekirdek ticari sekmeler** (10) video-teyitli.
+
+> ### ⚠️ Bu ağacı `Genel Ayarlar` ağacıyla karıştırma — ikisi ayrı pencere
+> | | **Özel Ayarlar** (bu dosya) | **Genel Ayarlar** |
+> |---|---|---|
+> | Yol | `Yetkili > **Özel Tanımlar**` | `Yetkili > **Tanımlar**` |
+> | Kapsam | modül **davranışı** (pencere çıksın mı, hızlı satış, terazi, performans) | firma geneli **veri/varsayılan** (KDV, hassasiyet, oto-kod, depo limitleri, gelişmiş fiyat/iskonto, fiyat loglama) |
+> | Butonlar | `Değişiklikleri Kaydet` / `Kaydetmeden Kapat` | `Kaydet` / `Vazgeç` / `Kapat` |
+>
+> İkisinde de **eş adlı** `Stok Ayarları` / `Fatura Ayarları` / `Cari Ayarları` düğümleri var ama
+> **içerikleri farklı**. Ayrıca **her pencerenin büyüteç araması yalnızca kendi ağacını tarar** —
+> birinde bulamamak ayarın yok olduğunu göstermez, diğerinde ara. Bir ayarın yerini söylerken
+> **hangi ağaç olduğunu belirt**; en hızlı ayırt edici alttaki buton çiftidir.
 
 ---
 
@@ -53,15 +72,17 @@ Sanal Santral)**. Aşağıda **çekirdek ticari sekmeler** (10) video-teyitli; s
 | Yeni kayıtta ticari unvana/ada konumlan | İmleç davranışı | Hızlı veri girişi |
 | **Cari hareket girişinde ödenmemiş taksit uyarısı** | Vadesi geçmiş taksit varsa işlemde uyarı | Tahsilat disiplini; [yaşlandırma P9](cozum-desenleri.md) ile tamamlayıcı |
 
-## 4) Fatura Ayarları  `📹`  ⭐ (reprice tetiği burada)
-**Satış Faturası:** iç dağıtım sistemi · elektronik terazi · hızlı satış · ek sistemler (**Petrol / Toptancı / yok**).
-**Alış Faturası — otomatik yeniden fiyatlama:**
+## 4) Fatura Ayarları  `✓ (8.25)`  ⭐ (reprice tetiği burada)
+**Tam yol:** `Yetkili > Özel Tanımlar > Özel Ayarlar > Fatura Ayarları`.
+**Sekmeler `✓ (8.25)`:** `Satış Faturası` · **`Alış Faturası`** · `Fatura Genel` · `Masraf Faturası`.
+**Satış Faturası `✓`:** "satış faturasında orduevi iç dağıtım sistemini kullan" · `Elektronik Terazi Kullan` · `Hızlı Satış Kullan` · `Ek Sistemler` (açılır liste: **Yok / Petrol / Toptancı…**).
+**Alış Faturası — otomatik yeniden fiyatlama `✓ (8.25)`** (ana kutu kapalıyken üç alt seçenek pasiftir):
 | Ayar | Ne yapar | Danışman notu |
 |---|---|---|
-| **"Satış fiyatları oluşturma penceresini göster"** | Alış faturası kaydında "satış fiyatları yeniden oluşturulsun mu?" penceresini açar | **Yerleşik reprice tetiği** — [kurulum-playbook §2](kurulum-playbook.md) · [P1](cozum-desenleri.md) |
-| **Alış fiyatlarına KDV eklenecek** | Reprice tabanına KDV dahil edilsin mi | `FIYATI` KDV **hariç** tutulur; bu ayar tabanı değiştirir → tuzak! [schema-map](schema-map.md) |
-| **Alış fiyatlarına ek maliyet eklenecek** | Navlun/gümrük gibi ek maliyet tabana binsin | Landed cost; açıksa reprice daha yüksek çıkar |
-| **Yeniden oluşturulacak satış fiyat sayısı / hangi alış** | Hangi satış listeleri (1-4) hangi alıştan üretilsin | Sadece 1 nolu mu, toptan+perakende mi? Netleştir |
+| **`Satış fiyatları oluşturma penceresini göster`** `✓` | Alış faturası kaydında "satış fiyatları yeniden oluşturulsun mu?" penceresini açar | **Yerleşik reprice tetiği** — [kurulum-playbook §2](kurulum-playbook.md) · [P1](cozum-desenleri.md). Kullanıcı "alınca satış fiyatı kendi değişiyor/değişmiyor" derse **ilk bakılacak yer burası** |
+| **`Alış fiyatlarına KDV ekle`** `✓` | Reprice tabanına KDV dahil edilsin mi | `FIYATI` KDV **hariç** tutulur; bu ayar tabanı değiştirir → tuzak! [schema-map](schema-map.md) |
+| **`Alış fiyatlarına ek maliyetleri ekle`** `✓` | Navlun/gümrük gibi ek maliyet tabana binsin | Landed cost; açıksa reprice daha yüksek çıkar. Kardeşi: `Genel Ayarlar > Fatura Ayarları > Alış Faturası > "Ek Maliyetleri Stok Hareketlerine Yansıt"` |
+| **`Yeniden oluşturulacak satış fiyatı sayısı`** `✓` | Kaç satış fiyat listesinin (1…n) yeniden üretileceği — sayaç, varsayılan **`1`** | Sadece 1 nolu mu, toptan+perakende mi? Netleştir; `STOK_FIYAT.FIYAT_NO` ile eşleşir |
 
 > ⚠️ Bu yerleşik pencere **simetriktir** (alış düşünce satışı da düşürür). "Yalnızca zam" isteniyorsa asimetrik
 > SQL gerekir → [sorgu-recetesi §H](sorgu-recetesi.md) · `tools/reprice-preview.ps1`.
