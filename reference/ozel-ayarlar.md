@@ -52,6 +52,11 @@ Sanal Santral` (Üretim/Servis/CRM/MRP2 yoktu). Aşağıda **çekirdek ticari se
 | **Varsayılan stok fiyat para birimi (TL / döviz)** | Fatura vb.'de stok fiyatının varsayılan dövizi | Yanlışsa tüm belgeler yanlış kurdan başlar → [schema-map DOVIZ](schema-map.md) |
 | **Aramada pasif stokları dahil et** | Barkod/stok kodu aramasına `AKTIF=0` de girsin | Pasif kart yanlışlıkla satılır; veri-kalitesi taramasıyla ilişkili ([P12/P24](cozum-desenleri.md)) |
 | **Tarih değişince döviz kuru yeniden aktar sorusu** | Belge tarihi değişince kuru güncelle sorusu | Geriye dönük belgede **yanlış kur** tuzağını önler |
+| **Form Başlığı renk ayarları** (başlangıç rengi · bitiş rengi · font rengi) | Form üst başlık çubuğunun rengini özelleştirir | Yukarıdaki "Tema" satırına ek detay |
+| **"Varsayılan Ayarları Yükle" butonu** | Bu ekrandaki tüm özel ayarları fabrika değerine döndürür | Deneme/test sırasında güvenli geri dönüş; canlıda dikkatli kullan — geri alınamaz olabilir |
+| **Pencere Gösterimi ayarı** ("Pencereleri Ana ekrana sığdır" / "Başlıkları gizle") | Açılan pencerelerin ekrana yerleşim biçimi | Çoklu pencere karmaşasını azaltmak isteyen kullanıcı için |
+| Resim kırpma ayarı ("kırpma işlemini uygula") | Yüklenen resimleri otomatik kırpar | `👤` Muhtemelen stok/cari kartı foto girişiyle ilgili — ekranda çapraz-doğrula |
+| "Üst erişim menüsünde göster" kutusu | Bir öğeyi üst erişim menüsünde gösterir | `👤` Düşük güven: [menu-haritasi.md](menu-haritasi.md)'deki "Hızlı Erişime Ekle" (sağ tık > ana ekrana iğnele) ile aynı mekanizma olabilir ama kaynakta doğrudan söylenmiyor — teyitsiz varsayım, ekranda birlikte doğrula |
 
 ## 2) Stok Ayarları  `📹`
 | Ayar | Ne yapar | Danışman notu |
