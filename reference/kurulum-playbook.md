@@ -81,6 +81,14 @@ gelene kadar izle (1200 = GİB kabul ama alıcıya ulaşmadı, 1230 = hata). →
 3. **Kullanım:** Alış faturası aç → ürünü ekle → yeni alış fiyatını gir → kaydet → **"satış fiyatları
    yeniden oluşturulsun mu?"** penceresinde kontrol et / onayla. Stok kartında satış fiyatı güncellenir. `📹`
 
+**Manuel toplu fiyat değiştirme (tamamlayıcı native yol):** Alıştan bağımsız, doğrudan fiyat listesi
+üzerinden toplu güncelleme istenirse `Fiyat Listesi > İşlemler > Manuel Fiyat Değiştirme` de kullanılabilir
+(→ [native-yetenek-indeksi §1](native-yetenek-indeksi.md)). `📹` Ekranda iki ayırt edici alan: **Hesap**
+(hangi para birimi/fiyat hesabının — TL veya döviz — değişeceğini seçer) ve **Fiyat No** (kaçıncı satış
+fiyat listesi). Onay öncesi **Stok Fiyat Yenileme** önizlemesi artış oranını hem **yüzde** hem **TL**
+olarak ayrı ayrı gösterir — reprice sonucunu kaydetmeden görmek isteyen müşteri için, §2'nin otomatik
+(alış-tetiklemeli) akışından daha kontrollü bir alternatiftir.
+
 **Alternatif — asimetrik/koşullu reprice (yalnızca yükselt, alt-küme):** Wolvox'un standart penceresi her
 seferinde sorar ve tüm marjı uygular. Danışman **kontrollü toplu** reprice isterse (örn. yalnız
 `OZEL_KODU='<OZELKOD>'` ile işaretli alt-küme, `yeni = CEILING(son_alış×çarpan)−1`, **sadece mevcut fiyattan yüksekse**):
@@ -197,7 +205,9 @@ yetkileri ata. → denetim izi [P18](cozum-desenleri.md).
 > Reprice/toplu güncelleme/devir öncesi müşteriye **bu ekrandan manuel yedek** aldır; geri yüklemeyi
 > **asla danışman körlemesine yapmaz** (geri döndürülemez).
 
-**D) Şube sistemi ve offline — kapsam kuralı ve tuzaklar** `👤` (A-8'deki `Şube İşlemleri` iskeletini tamamlar)
+**D) Şube sistemi ve offline — kapsam kuralı ve tuzaklar** `📹` (A-8'deki `Şube İşlemleri` iskeletini
+tamamlar; resmî AKINSOFT eğitim videosuyla **kelimesi kelimesine tam teyitli** — Tuzak 1, Tuzak 2,
+offline akışı, şube kapsam kuralının hepsi doğrulandı, yeni/çelişen bilgi çıkmadı)
 
 - **Kapsam kuralı:** tüm veriler **aynı veritabanında** kalır, şube başına ayrı şirket kaydı açılmaz;
   raporlar tek ekrandan tüm şubeleri görebilir. Paylaşım: **stok kartları tüm şubelerde ortaktır**;
@@ -222,6 +232,73 @@ yetkileri ata. → denetim izi [P18](cozum-desenleri.md).
   Al`** (personelin yetkisi dahilindeki veriler iner) — veri gönderimi de aynı ekrandan. Şema izi:
   `OFFLINE_DURUM` / `OFFLINE_GUID` / `SOURCE_APP`.
 
+## §7 — Eski sürümden Wolvox 8'e geçiş (Wolvox 6/7, Octopers, Octoplus)  `👤`
+
+**Amaç:** Wolvox 6/7 veya Octopers/Octoplus kullanan bir işletmeyi Wolvox 8/9'a veri/ayar kaybı
+olmadan geçirmek. ⚠️ Bu bölüm yalnızca **8/9'a giriş noktasını** kapsar — kaynak programların kendi
+iç detayları bilinçli olarak dışarıda bırakıldı; kaynak ekran/menü adları oto-altyazıda **özellikle
+bozuk** geldi, akış iskeleti güvenilir ama **hiçbir buton/menü adını ekranda teyitsiz kullanma**.
+
+**Adımlar**
+1. İlk kurulumda Kontrol Paneli açılışta "diğer programlardan geçiş yapmak ister misiniz" sorusunu
+   sorar; sonradan erişmek için Kontrol Paneli'nde ilgili aktarım ekranına gir (kanonik menü adı
+   **ekranda teyit edilmeli**, oto-altyazı güvenilmez geldi).
+2. Eski programın **data/veri dizinini** seç.
+3. **Aktar/işlemi başlat.**
+
+**Kaynağa göre davranış farkı** (⚠️ ikisi de düşük güvenle, ekranda teyit et):
+- **Wolvox 6'dan** aktarımda Kontrol Paneli'ndeki **tüm ayarlar/veriler** olduğu gibi taşınır.
+- **Octopers/Octoplus'tan** aktarımda **hangi modüllerin** aktarılacağı seçilebilir (hepsi zorunlu değil).
+- **Wolvox 7'den hızlı aktarım ön koşulu:** kaynak (Wolvox 7) ve hedef (Wolvox 8) Kontrol Panellerinin
+  **aynı port numarasını** kullanıyor olması gerekir (çıkarım — ekranda doğrula) — port eşleşmesi
+  atlanırsa aktarım butonu/akışı çalışmayabilir.
+
+**Doğrulama:** Aktarım sonrası stok/cari/fatura sayıları kaynak sistemle mutabık mı? Kritik ayarlar
+(KDV oranları, fiyat listeleri, kullanıcı yetkileri) yeni sistemde birebir mi?
+
+**Tuzaklar**
+- Menü adları bu playbook'ta **teyitsiz** — akış doğru ama buton isimlerini müşteriyle ekranda bul.
+- Wolvox 7→8 port eşleşmesi atlanırsa aktarım sessizce başarısız olabilir.
+- Geçiş **önce yedek** disiplinine tabidir (§6-C) — hem kaynak hem hedef tarafında.
+
+---
+
+## §8 — KVKK Anonimleştirme Playbook'u  `📹`
+
+**Amaç:** Saklama süresi dolmuş kişisel veriyi ham `DELETE` yerine **yerleşik anonimleştirme
+aracıyla** kalıcı olarak geri döndürülemez hale getirmek. → [native-yetenek-indeksi §5](native-yetenek-indeksi.md), [turkiye-uyumluluk (KVKK)](turkiye-uyumluluk.md).
+
+**Ön koşul:** Hangi kayıtların (tarih aralığı + tablo) anonimleştirileceği konusunda **müşteri/hukuk
+danışmanı kararı** — bu playbook kararı vermez, uygular. **Önce yedek.**
+
+**Adımlar**
+1. `Yetkili > Anonimleştirme ▸ > **Anonimleştirme İşlemleri**` aç.
+2. **Başlangıç Tarihi** (opsiyonel — boş bırakılırsa bitiş tarihinden önceki şartlara uyan **tüm**
+   kayıtlar işleme girer, dikkatli kullan) · **Bitiş Tarihi** · **İmha Evrak İsmi** · **İmha Etme
+   Yöntemi** · **Açıklama** · anonimleştirilecek **tabloların seçimi** · işlemi yapan **kişi
+   adı-soyadı** + **birim/özel kodu** gir.
+3. **"Anonimleştirme İşlemine Başla"** > onay diyaloğu (Evet) > tamamlanma mesajını bekle.
+4. Sonucu **Anonimleştirme Raporu** ekranından doğrula (yapılan işlemlerin listesi, ayrı menü öğesi).
+
+**İdempotent davranış (önemli):** anonimleştirilmiş kayıtlar aynı şartlara/tarih aralığına tekrar
+uysa dahi **tekrar işlenmez** — aynı filtreyle ekranı yeniden çalıştırmak zaten anonimleştirilmiş
+kayıtları bozmaz, güvenle tekrarlanabilir.
+
+**Yalnızca kayıt/log amaçlı alternatif:** `Yetkili > Anonimleştirme ▸ > **Anonimleştirme Kayıt**` —
+aynı alan seti ama **gerçek anonimleştirme işlemini yapmaz**, yalnızca (ör. fiziksel evrak imhası
+ayrıca yapıldıysa) o imha işlemini loglar. "Anonimleştirme İşlemleri" ile karıştırma.
+
+**Doğrulama:** Anonimleştirme Raporu'nda işlem görünüyor mu? İlgili tablolarda hedef alanlar (ad/VKN/
+telefon vb.) beklenen şekilde maskelendi mi (örnek kayıt spot-check)?
+
+**Tuzaklar**
+- Bitiş tarihi girilip başlangıç boş bırakılırsa **beklenenden çok daha geniş bir aralık** işlenir.
+- Anonimleştirme **geri alınamaz** (native `DELETE` kadar kalıcı, ama denetlenebilir) — önce yedek.
+- "Anonimleştirme Kayıt" ekranını "Anonimleştirme İşlemleri" sanıp yalnız log girip gerçek veriyi
+  hâlâ açık bırakmak.
+
+---
+
 ## Playbook seçim refleksi
 | Müşteri diyor ki | Playbook |
 |---|---|
@@ -232,5 +309,8 @@ yetkileri ata. → denetim izi [P18](cozum-desenleri.md).
 | "e-Fatura yanlış cariye gidiyor / adres hatası" | §5 |
 | "Yeni firma/şube açacağım / kullanıcı yetkisi" | §6-A/B (Kontrol Paneli) |
 | "Yedek nasıl alınır / geri yükleme / DB bakım" | §6-C (Kontrol Paneli) + [dba-performans §3](dba-performans.md) |
+| "Şubeler arası veri paylaşımı / offline çalışma" | §6-D |
+| "Wolvox 6/7'den veya Octopers/Octoplus'tan geçiyoruz" | §7 |
+| "Eski müşteri verisini KVKK gereği silmemiz/anonimleştirmemiz lazım" | §8 |
 
 > Kurulum sonrası **sağlık kontrolü** için → [rapor-sablonlari.md](rapor-sablonlari.md) (yönetici sağlık raporu).
