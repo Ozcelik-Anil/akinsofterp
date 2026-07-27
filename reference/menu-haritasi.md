@@ -77,7 +77,7 @@ Modül eşlemesi (nerede ne var):
 
 ## Stok Yönetimi
 Dal yapısı `✓ (8.25)`:
-- **İşlemler:** Stok Giriş Hareketi · Stok Çıkış Hareketi · Toplu Stok Hareketi · Depo İşlemleri ▸ · Stok Sayımı ve Düzenleme · Stok Tanım Birleştirme
+- **İşlemler:** Stok Giriş Hareketi · Stok Çıkış Hareketi · **Toplu Stok Hareketi** (çoklu stok giriş/çıkış — native-index §2) · Depo İşlemleri ▸ · **Toplu Depo Transferi** (⚠️ ayrı madde mi yoksa `Depo İşlemleri ▸` altında mı, `8.25`'te teyit edilmedi — native-index §8) · Stok Sayımı ve Düzenleme · Stok Tanım Birleştirme
 - **Tanımlar:** Stok Tanımları · Hızlı Stok Tanımı · Hizmet Tanımları · Paket Tanımları · Depo ▸ · Stok Birim Tanımları · **Fiyat Tanımları** · E-Ticaret Özellik Tanımları · Stok Ek Özellik Tanımları · Marka/Model · Renk · Beden · **Stok Grup Tanımları** · Stok Kategori Tanımları · Hizmet Grup Tanımları
 - **Raporlar:** Tanım Listeleri ▸ · İşlem Raporları ▸ · Envanterler ▸ · Analizler ▸
 
@@ -113,7 +113,7 @@ Dal yapısı `✓ (8.25)`:
 
 ## Finans Yönetimi (Cari · Kasa · Banka · Çek/Senet)
 Dal yapısı `✓ (8.25)`:
-- **İşlemler:** Tahsilatlar ▸ · Tediyeler ▸ · Kasa İşlemleri ▸ · Banka İşlemleri ▸ · Döviz İşlemleri ▸ · **Toplu Cari Hareket** · **Cari Virman** · **Cari Tanım Birleştirme** · Para Sayma · Seri Senet Basımı · Teminat Çeki/Senedi · **Çek/Senet İşlemleri**
+- **İşlemler:** Tahsilatlar ▸ (+ **Çek/Senet Tahsilat Bordrosu**, **Çek-Senet Kısmi Tahsilat**) · Tediyeler ▸ · Kasa İşlemleri ▸ · Banka İşlemleri ▸ (+ **Bankadan Online Veri Al**, **Banka Borç/Alacak Girişi**, **Kredi Kartı Taksitlendirme**) · Döviz İşlemleri ▸ · **Taksit İşlemleri** ▸ (Yeni Taksit Girişi · tahsilat · **Virman**) · **Toplu Cari Hareket** · **Cari Virman** · **Cari Tanım Birleştirme** · Para Sayma · Seri Senet Basımı · Teminat Çeki/Senedi · **Çek/Senet İşlemleri**
 - **Tanımlar:** **Cari Tanımları** · Kasa Tanımları · Banka Tanımları · **Döviz Tanımları** · Departman Tanımları · Resmi Tatiller · Cari Grup Tanımları · Kasa Grup Tanımları
 - **Raporlar:** Tanım Listeleri ▸ · İşlem Raporları ▸ · **Bakiye Raporları ▸** (Bakiyeler Listesi · KPB Esaslı Bakiyeler Listesi · **Hareketli Bakiyeler Listesi** · Pazarlamacı Bakiyeler Listesi) · Pazarlamacı Raporları ▸ · Kasa Raporları ▸ · Çek/Senet Raporları ▸ · Banka Raporları ▸ · Döviz Raporları ▸ · **Analizler ▸** (İşlem Türü Raporu · Dönemsel Hareket Raporu · Cari Özel Rapor · Cari Hareket Analizi · (Aylık) · Cari Analizi · **Finansal Analiz ▸** [Detaylı · Periyodik Rapor · Kontrol · **Otomatik Talimat Kontrol** · **Zamanlı Hesaplar** · Ayarları] · Gün Sonu ▸ · **Yönetici Ekranı** · **Şube İzleme Ekranı**)
 
@@ -163,7 +163,31 @@ modülde** yaşar; hangisini kullanacağını **yön** belirler (alış mı sat�
 | Sipariş → irsaliye/fatura | `≈` | `<Satış\|Satın Alma> Yönetimi > İşlemler > Siparişler ▸` | P6 (belge zinciri) |
 | Açık/kapanmamış sipariş | `≈` | `<Satış\|Satın Alma> Yönetimi > Raporlar >` (ana ekran kısayolu: **`Sipariş Raporu`**) | P6 · P13 |
 | Teklif → sipariş | `≈` | `<Satış\|Satın Alma> Yönetimi > İşlemler > Teklifler ▸` | P28 (dönüşüm oranı) |
-| Satın alma talebi (siparişin üst akışı) | `👤` | `Satın Alma Yönetimi > … > **Satın Alma Talep Ekranı**` (+ `Satın Alma Talep Listesi` > `Satın Alma` > `Satın Alma Emri Ver`) | native-index §14 |
+| **Teklif → irsaliye/fatura** (toplu) | `📹` | `<Satış\|Satın Alma> Yönetimi > İşlemler > **Teklif İrsaliyelendir**` / **Teklif Faturalandırma** — yalnız durum tanımında "muhasebeleştirilsin" işaretli teklifleri listeler > filtrele > Fatura Tipi seç > Hareket Aktarma (aynı satır/ayrı satır) > özel tanım eşleştirme | Servis Fiş Faturalandırma ile aynı UI ailesi (modul-derinlik §3) |
+| **Teklif → Servis Fişi** | `📹` | `Satış Yönetimi > İşlemler > Teklifler ▸ > **Teklif Servise Aktarım**` > teklifi seç > "Servise Aktar" | modul-derinlik §3 (Bağlantılar sekmesi) |
+| **Sipariş formu — vade kaynağı + grup** | `📹` | Vade alanı: Manuel/Varsayılan(`Genel Ayarlar > Sipariş Ayarları`)/Cari/Stok seçenekleri; gruplama: `Satış Yönetimi > Tanımlar > Sipariş Tanımları > **Sipariş Grubu Tanımları**` | native-index §14 |
+| **Teklif → Sipariş özel alan eşleme** | `📹` | `Teklif Bilgileri > **Özel Tanım Aktarma Ayarları**` — teklifteki özel alan ile siparişteki karşılığını eşleştirir (başlık/satır seçimi) | native-index §14 |
+| Satın alma talebi (siparişin üst akışı) | `👤` | `Satın Alma Yönetimi > … > **Satın Alma Talep Ekranı**` (+ `Satın Alma Talep Listesi` > `Satın Alma` > `Satın Alma Emri Ver` **veya** `Teklif` sekmesi > **e-Teklif İste** ile tedarikçi karşılaştırma — bkz. native-index §14) | native-index §14 |
+
+## Teklif Formu sekmeleri
+Teklif formunun sekme detayı önceden hiç belgeli değildi (round 2, resmî Servis Yönetimi/Eğitim serisi,
+13 video). Sekme sırası: Cari · Teklif Bilgileri · Fiyat Değiştirme · Özel Tanımlar · Not · Pazarlama ·
+İskontolar · Ek Bilgiler 1 · CRM (lisanslıysa) · Stok Bakiyeleri.
+
+| İşlem | Güv. | Yol | İlgili reçete/desen |
+|---|---|---|---|
+| Teklif formuna giriş + cari seçimi | `📹` | `<Satın Alma\|Satış> Yönetimi > İşlemler > Teklifler ▸` > F5/Cari Bul > cari yetkilisi + **Sevk Adresi** otomatik | Birden fazla sevk adresi için **Cari II** modülü gerekir (Fatura/Servis Fişi'yle aynı kısıt) |
+| Teklif no/tarih/grup/KDV/geçerlilik/durum | `📹` | **Teklif Bilgileri** sekmesi: özel kod · teklif no (oto) · tarih/saat · **Grup** · KDV (+toplu aktar) · muhasebe evrak no · **geçerlilik tarihi** · **onay tarihi** · **teslim süresi** (gün) · **Teklif Durumu** · özel tanım aktarma ayarları | `TEKLIF.TEKLIF_DURUMU` (1=Açık, 3=Onaylandı, 6=Reddedildi) kolonunun UI karşılığı — kod-sozlugu.md ile eşleşir |
+| Toplu fiyat/iskonto/pazarlama | `📹` | **Fiyat Değiştirme** · **İskontolar** (KDV öncesi 1-2-3 kademeli + stok + özel + KDV sonrası, en son uygulanır) · **Pazarlama** (fiş/satır bazında) | Servis Fişi'ndeki (modul-derinlik §3) aynı 3 sekmeyle **birebir aynı UI kalıbı** |
+| Formda olmayan veri alanı ekle | `📹` | **Özel Tanımlar** > Kategori Adı + Alan Tanımı + veri tipi | Stok/Cari kartlarındaki "Özel Tanımlar" ile aynı native desen |
+| Çıktıda görünecek serbest not | `📹` | **Not** sekmesi | Çıktıda görünmesi için Aktif Rapor tasarımına elle eklenmeli (Servis Fişi Arıza sekmesiyle aynı desen) |
+| Ek açıklama + varsayılan depo + döviz | `📹` | **Ek Bilgiler 1**: Ek Bilgi 1/2 · Açıklama · **Varsayılan Depo** (+tüm satırlara aktar) · **Döviz Kullan** + birim + kur aktar · muhasebe cari hesabı seçimi | — |
+| Teklifi bir CRM projesine bağla | `📹` | **CRM** sekmesi (CRM lisanslıysa) > proje kodu seç | native-yetenek-indeksi §15 |
+| Bloke/Termin miktarlarının anlamı | `📹` | **Stok Bakiyeleri** sekmesi: Bloke = **alınan teklif+sipariş**ten bloke edilen miktar; Termin = **verilen teklif+sipariş**ten termin edilecek miktar | Depo Bakiyeleri kolon adlarını (Stok Yönetimi tablosu) anlamca tamamlar |
+| Bir cariye önceden düzenlenmiş teklifleri hızlı görüntüle | `📹` | Teklif formu üst > **Eski Teklifler** | Fatura'daki `Eski Faturalar` ile aynı desen |
+| Teklifteki özel alandan otomatik yeni stok kartı oluştur | `📹` | İşlemler > **S Kart Oluşturma** | native-yetenek-indeksi §2 |
+| Tüm tekliflerini filtreli listele / süresi geçenleri bul | `👤` | `<Satış\|Satın Alma> Yönetimi > Raporlar > Teklif Raporları > **Teklif Raporu**` — Geçerlilik Tarihi/Teslim Süresi sütununa tıkla sırala | — |
+| Teklif durumu değişince personele uyarı ver | `👤` | `Tanımlar > Teklif Tanımları > **Teklif Durum Tanımları**` > durum bazında uyarılacak personel + yetki | modul-derinlik'teki Servis Fiş Durumu deseniyle aynı |
 
 ## Kasa / Banka / Çek-Senet
 | İşlem | Güv. | Yol | İlgili reçete/desen |
@@ -204,6 +228,8 @@ Bu yüzden `_WOLVOX` DB'sine bakıp "muhasebe kullanılmıyor" demek **yanlış 
 | Muhasebe entegrasyon ayarları | `✓ (8.25)` | `Yetkili > Tanımlar > Genel Ayarlar > **Genel Muhasebe**` | — |
 | Stok/cari kartın muhasebe kodu | `✓ (8.25)` | Stok kartı > **`Muhasebe`** sekmesi (cari kartta da muadili) | P5 |
 | Mizan · yevmiye · dönem sonu | `≈` | **Ayrı Genel Muhasebe uygulamasında** (`Diğer İşlemler > G.Muhasebe > Genel Muhasebe` ile aç) | P5 · P11 |
+| **GM uygulaması içi: Hesap Planı / KDV Tanımları / Fiş İşlemleri** | `👤` | Ayrı Genel Muhasebe uygulaması: **Hesap Planı** (Oluşturma + Excel'den) · **Tanımlar > KDV Tanımları** · **Fiş İşlemleri** (Açılış/Tahsil/Tediye/**Mahsup**/Kapanış — 5 tip) · **Transfer Dosyasından Fiş Oluştur** | GM'nin kendi iç yapısının ayrıntısı artık belgeli — native-yetenek-indeksi §6 |
+| ERP↔GM entegrasyon tipi (anlık/toplu, tek/çift fiş, depo/asorti hesap kodu) | `👤` | `Yetkili > Genel Ayarlar > Genel Muhasebe` sekmesi | native-yetenek-indeksi §6 (ayrıntılı) |
 
 ## Üretim / Reçete *(edisyona bağlı — yoksa üst menüde hiç görünmez)*
 ⚠️ `8.25` saha koşusundaki sektörel pakette **Üretim üst menüsü yoktu**. Üretim modülünün varlığı
@@ -345,7 +371,11 @@ Koşuda **yeni keşfedilen, skill'de hiç geçmeyen** yetenekler (hepsi native, 
 `SQL Monitör` + `Aktif Nesne İsmini Göster` (canlı şema keşfi) · `Yönetici/Şube İzleme Ekranı` ·
 `Cari Tanım Birleştirme` / `Stok Tanım Birleştirme` (mükerrer kart temizliği) · `Muadil Alış Fiyatı`.
 
-**Sonraki koşuda kapatılacak boşluklar:** Cari Tanımları sekmeleri · İrsaliye/Sipariş/Teklif alt
-menüleri · **`Özel Ayarlar` ağacının kalan grupları** (Performans · Cari · Depo · Çek-Senet ·
-İrsaliye · Teklif · Sipariş · Banka) · `Genel Ayarlar`ın kalan grupları (İrsaliye/Sipariş/Teklif/
-Çek-Senet/Banka/Parasal/Program) · Kontrol Paneli (yedek + devir) · ayrı Genel Muhasebe uygulaması.
+**Sonraki koşuda kapatılacak boşluklar:** Cari Tanımları sekmeleri · İrsaliye/Sipariş alt menüleri
+(Teklif Formu sekmeleri round 2'de video-kaynaklı olarak kapatıldı, ekranda saha-teyidi hâlâ bekliyor)
+· **`Özel Ayarlar` ağacının kalan grupları** (Performans · Cari · Depo · Çek-Senet · İrsaliye · Teklif
+· Sipariş · Banka) · `Genel Ayarlar`ın kalan grupları (İrsaliye/Sipariş/Teklif/Çek-Senet/Banka/
+Parasal/Program) · Kontrol Paneli (yedek + devir) · ayrı Genel Muhasebe uygulaması (round 2'de
+video-kaynaklı olarak büyük ölçüde kapatıldı — hesap planı/KDV/fiş tipleri/entegrasyon, bkz.
+native-yetenek-indeksi §6) · CRM Modülü üst-menü konumu (native-yetenek-indeksi §15) · Kartotek
+modülüne giden üst menü ağacı.
