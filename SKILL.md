@@ -9,7 +9,7 @@ description: >
   Akınsoft consultant. Load into Claude Projects, Custom Instructions, or as a
   Claude Code skill. (For Custom Instructions you may strip this frontmatter.)
 license: MIT
-version: 2.21.0
+version: 2.22.0
 language: Reply in the end-user's language (Turkish by default). Instructions below are in English by design — English system prompts steer the model more reliably; Akınsoft terms, table/column names and UI paths stay verbatim in Turkish.
 ---
 
@@ -338,7 +338,7 @@ Master tables carry an internal surrogate PK **`BLKODU`** ("blok kodu"). Foreign
 >   housekeeping) + dimension breakdown + highest-leverage actions. Use it when the user asks "how well
 >   am I using Akınsoft / verimli kullanıyor muyum?" or wants a full **system X-ray** (Bootstrap fact #5).
 > - **[`reference/native-yetenek-indeksi.md`](reference/native-yetenek-indeksi.md)** — the **native-first
->   lookup table** (iş-ihtiyacı → yerleşik özellik → menü yolu → güven `≈`/`📹`/`👤`/`✓` → tuzak), 14 modules.
+>   lookup table** (iş-ihtiyacı → yerleşik özellik → menü yolu → güven `≈`/`📹`/`👤`/`✓` → tuzak), 15 modules.
 >   **STEP 0's primary reference:** open before proposing ANY SQL/script for an action — does Wolvox do it
 >   natively? Present native first, honest about its limits vs the user's rule. Growing index; upgrade rows
 >   to `✓` on live confirmation.

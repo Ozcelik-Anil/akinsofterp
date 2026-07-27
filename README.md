@@ -15,7 +15,7 @@ This repo ships a single-file system instruction (`SKILL.md`) that turns Claude 
 > Turkish note: the skill's own domain content (SQL, ERP terminology, Turkish tax/compliance rules) is intentionally written in Turkish, since that matches the Akınsoft Wolvox product itself. This README (repo documentation) is bilingual.
 
 ### What it does
-- **Native-first reflex.** Before proposing any SQL write / fix / automation, checks whether Wolvox already has a built-in feature for it (`reference/native-yetenek-indeksi.md` — 14 modules, need → built-in feature → menu path → confidence → trap), now including e-Commerce/marketplace, quick-sale/POS, and purchasing/finance/documents.
+- **Native-first reflex.** Before proposing any SQL write / fix / automation, checks whether Wolvox already has a built-in feature for it (`reference/native-yetenek-indeksi.md` — 15 modules, need → built-in feature → menu path → confidence → trap), now including e-Commerce/marketplace, quick-sale/POS, purchasing/finance/documents, and CRM.
 - **Structural health scan** — broken currency records, cards without a group code, duplicate barcodes, negative stock.
 - **Commercial analysis** — customers/vendors inactive 90+ days, dead/slow-moving stock, stock turnover rate, dynamic price matrix.
 - **Turkish compliance** — e-Transformation (e-Invoice/e-Archive/e-Waybill/e-Ledger) diagnostics, VAT/excise/withholding checks, accounting integration & trial balance.
@@ -97,7 +97,7 @@ There's a character limit and **you can't attach files.** Paste `SKILL.md` (with
 | File | Description |
 |---|---|
 | `SKILL.md` | Main system instruction — role, safety, read-only login bootstrap, native-first gate, schema reference, Turkish compliance, Firebird appendix. |
-| `reference/native-yetenek-indeksi.md` | Native Capability Index — need → built-in Wolvox feature → menu path → confidence (`≈`/`📹`/`✓`) → trap, across 14 modules. |
+| `reference/native-yetenek-indeksi.md` | Native Capability Index — need → built-in Wolvox feature → menu path → confidence (`≈`/`📹`/`✓`) → trap, across 15 modules. |
 | `reference/danismanlik-metodolojisi.md` | Consulting methodology — one engagement flow (Discovery → Assessment → Prioritization → Implementation → Delivery → Follow-up) mapped to which pack to use. |
 | `reference/schema-map.md` | Generic Wolvox 8 schema map — table roles, key columns, naming codes, relationships, KVKK/PII register. No real business data. |
 | `reference/sorgu-recetesi.md` | Read-only diagnostic query recipes (data health, dead stock, customer balance, pending e-invoices). |

@@ -3,6 +3,23 @@
 Bu projenin tüm önemli değişiklikleri burada tutulur.
 Format [Keep a Changelog](https://keepachangelog.com/tr/1.0.0/) esaslıdır; sürümleme [SemVer](https://semver.org/lang/tr/).
 
+## [2.22.0] — 2026-07-27
+### Eklendi (niş YouTube damıtma kampanyası, round 2 — 14 yeni kanal + 2 resmî alt-kanal, 110 video)
+- **Yeni `native-yetenek-indeksi.md` §15 "CRM Modülü"** — Tanımlar, Anket, Proje ve Satış Takip, Kampanya, Ajanda, CRM ana ekranı, Fatura/Sipariş/İrsaliye/Teklif/Servis Fişi'ndeki CRM sekmesi, cari kartı CRM segmentasyonu.
+- **"Kartotek modülü" belirsizliği çözüldü** — uzun süredir `native-yetenek-indeksi.md` §1/§13'te lisans ön koşulu olarak geçen ama tanımlanmamış bu terim artık netleşti: Cari/Stok/Seri-Lot/Paket kartları için toplu etiket-baskı (Seri Etiket) alt sistemi.
+- **`native-yetenek-indeksi.md` §6 Genel Muhasebe** büyük ölçüde derinleştirildi: ERP↔GM entegrasyon tipi (anlık/toplu), tek-fiş/çift-fiş, depo/asorti bazlı hesap kodu, hesap planı/KDV tanımları/5 fiş tipi, uçtan-uca örnek (alış/satış/tevkifat/masraf/kredi), enflasyon muhasebesi ayrıntısı.
+- **`native-yetenek-indeksi.md` §14 Banka Tanımları/Çek-Senet** derinleştirildi: Genel Bilgiler sekmesi, Resmi Tatil kayması, SWIFT kodu, Vadeli/Vadesiz hesap, şube paylaşım gizliliği, Rotatif Kredi Hesabı (KMH), POS Provizyon Kesinti Tipi, Post Vadeleri; Seri Senet Basımı / Çek-Senet Tahsilat Bordrosu / Çek-Senet İşlemleri durum listesi / Kısmi Tahsilat / Banka Borç-Alacak Girişi.
+- **`native-yetenek-indeksi.md` §4 Cari/Alacak**: Taksit Virman, Kredi Kartı Taksitlendirme, Toplu Cari Hareket yeni satırlar; Taksit İşlemleri ve Bonus Sistemi satırları `👤`→`📹` yükseltildi.
+- **`native-yetenek-indeksi.md` §2/§8/§13**: Toplu Stok Hareketi, S Kart Oluşturma, Toplu Depo Transferi (yeni), Lokasyon sistemi `👤`→`📹`, terazi entegrasyonu derinleştirmesi (Veri Deseni + Bildirim Portu, Aclas zorunlu alanlar).
+- **`modul-derinlik.md` §3**: yeni "Servis Fişi — sekme detayı" alt-bölümü (13 sekme tam alan/buton listesi — Bağlantılar, Fiyat Değiştirme, Pazarlama, İskontolar, Dış Servis, Servis İşlemleri, Arıza, Ürün Bilgileri, Fiş Bilgileri, Servis Bakım Sözleşmesi, Servis Randevu Kaydı, Servis Fiş Faturalandırma).
+- **`modul-derinlik.md` §5**: Vardiya tanımı alan listesi + yeni "İK 360 Derece Performans Yönetim Sistemi" alt-modülü.
+- **`menu-haritasi.md`**: yeni "Teklif Formu sekmeleri" bölümü (13 sekme); Belge zinciri tablosuna Teklif→irsaliye/fatura, Teklif→Servis Fişi, Sipariş vade kaynağı/grup satırları eklendi.
+- **`kurulum-playbook.md`**: §6-D (Şube/Offline) `👤`→`📹` yükseltildi; yeni §7 "Eski sürümden Wolvox 8'e geçiş"; yeni §8 "KVKK Anonimleştirme Playbook'u".
+- **`ozel-ayarlar.md` §1**: Form Başlığı renk ayarları, "Varsayılan Ayarları Yükle", Pencere Gösterimi, resim kırpma ayarı yeni satırlar.
+- **`kod-sozlugu.md`**: `CEK_SENET.EVRAK_DURUMU`'na somut UI durum listesi, `TEKLIF.TEKLIF_DURUMU`'na UI-konum teyidi eklendi.
+- Kaynak: 14 yeni niş kanal + 2 resmî AKINSOFT alt-kanal, 1391 aktif aday videodan en değerli 110'u seçilip transkript indirilip damıtıldı (98 `📹` + 12 `👤`). Video ID'leri/kanal adları KVKK ve kapsam disiplini gereği repoda değil, yalnızca gitignored yerel bir takip dosyasında tutuluyor.
+- **Bu turda bilinçli olarak kapsam dışı bırakıldı:** WolvoxCloud kanalı (403 video — farklı ürün); QR Menü Paneli, Akaryakıt İstasyonu Otomasyonu ve Wolvox GM→"Zirve" veri aktarımı bulguları — üçü de 3. parti/bayiye-özel ürün/hizmet niteliğinde olup Wolvox native yeteneği değil, skill'e **bilinçli olarak eklenmedi**; kalan ~1257 aday video sonraki round'a bırakıldı (bekliyor); bazı bulgular yüksek belirsizlikle işaretlendi (WebConnect terminolojisi, İK 360 Performans ile ERP Performans Ayarları ilişkisi) — ekranda teyit gerektiriyor.
+
 ## [2.21.0] — 2026-07-26
 ### Eklendi (niş YouTube damıtma kampanyası — resmî kanal dışı kaynaklar)
 - **Yeni güven etiketi `👤`** ("bayi/danışman/kullanıcı videosundan damıtıldı, resmî AKINSOFT kaynağı değil; versiyon/terim sapması riski daha yüksek") — `native-yetenek-indeksi.md` ve `menu-haritasi.md` lejantlarına, `CONTRIBUTING.md`'nin iki PR-etiket listesine eklendi.
