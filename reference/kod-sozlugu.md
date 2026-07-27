@@ -119,11 +119,22 @@ Cari hareketin kaynağını kodlar. Tipik anlamlar (kurulumda açıklama/korelas
 İki basamaklı kod: **onlu basamak evrak tipiyle** örtüşür (1x müşteri çeki, 2x müşteri senedi, 3x kendi
 çek, 4x kendi senet), **birim basamak = durum** (portföy/tahsil/ciro/karşılıksız vb.). UI'da bir evrakta izle.
 
+**Durum tarafının somut UI karşılığı (👤, round 2 — `Finans Yönetimi > İşlemler > Çek/Senet İşlemleri`
+> Uygulanacak İşlem seçimi):** **Takasta** · **Banka Kredisi** (+ banka seçimi) · **Tahsil Edildi**
+(+ tahsil edilen kasa) · **Ciro Edildi** (+ ciro edilen cari — `CARIHR.ISLEM_TURU` kod 7/8 ile eşleşir,
+bkz. yukarıdaki Cari Hareket bölümü) · takastaki çekin sonucu **Tahsil Edildi/İade**. Kesin sayısal
+kod değerleri (birim basamak) install'da bu ekrandaki seçim listesiyle çapraz doğrulanmalı — video
+yalnızca UI etiketlerini veriyor, sayısal kodu vermiyor.
+
 ---
 
 ## Teklif
 ### `TEKLIF.TEKLIF_DURUMU` 📖
-`1`=Açık/beklemede, `3`=Onaylandı, `6`=Reddedildi/iptal.
+`1`=Açık/beklemede, `3`=Onaylandı, `6`=Reddedildi/iptal. UI karşılığı **Teklif Formu > Teklif
+Bilgileri sekmesi > Teklif Durumu** alanıdır (👤 round 2 ile teyitli — menu-haritasi.md "Teklif Formu
+sekmeleri"). Teklif → irsaliye/fatura muhasebeleştirme ekranı yalnızca **"muhasebeleştirilsin"**
+işaretli durum tanımındaki teklifleri listeler — bunun hangi `TEKLIF_DURUMU` değerine(lerine) karşılık
+geldiği (muhtemelen `3`=Onaylandı) ekranda **doğrulanmadı**.
 
 ---
 
