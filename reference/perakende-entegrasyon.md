@@ -143,7 +143,7 @@ cihazı fiziksel olarak bağlı ve tanımlı mı?
 | "Müşteri taksidini siteden ödeyemiyor / Wolvox'a düşmüyor" | §2b (sanal POS ↔ taksit eşleştirme) |
 | "Pazaryerinde ürün listelenmiyor / aynı ürün iki yerde satıldı" | §2c (grup/kategori, overselling) |
 | "Garson/kurye programa giremiyor" | §3a/§3b (iki katmanlı yetkilendirme, şifre karışıklığı) |
-| "Terazi bağlı ama fiyat/gramaj Hızlı Satış'a düşmüyor" | [native-yetenek-indeksi §13](native-yetenek-indeksi.md) (Veri Deseni + Bildirim Portu eşleşmesi) |
+| "Terazi bağlı ama fiyat/gramaj Hızlı Satış'a düşmüyor" | [native-index §13](native-yetenek-indeksi.md) (Veri Deseni + Bildirim Portu eşleşmesi) |
 
 > Kâr analizi için komisyon/kargo/ÖKC türü ayrımı [rapor-sablonlari](rapor-sablonlari.md) bulgu tablosuna
 > girer; kanal bazlı kârlılık **komisyon düşülmüş** hesaplanmalı.

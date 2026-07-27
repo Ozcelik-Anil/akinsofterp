@@ -83,7 +83,7 @@ gelene kadar izle (1200 = GİB kabul ama alıcıya ulaşmadı, 1230 = hata). →
 
 **Manuel toplu fiyat değiştirme (tamamlayıcı native yol):** Alıştan bağımsız, doğrudan fiyat listesi
 üzerinden toplu güncelleme istenirse `Fiyat Listesi > İşlemler > Manuel Fiyat Değiştirme` de kullanılabilir
-(→ [native-yetenek-indeksi §1](native-yetenek-indeksi.md)). `📹` Ekranda iki ayırt edici alan: **Hesap**
+(→ [native-index §1](native-yetenek-indeksi.md)). `📹` Ekranda iki ayırt edici alan: **Hesap**
 (hangi para birimi/fiyat hesabının — TL veya döviz — değişeceğini seçer) ve **Fiyat No** (kaçıncı satış
 fiyat listesi). Onay öncesi **Stok Fiyat Yenileme** önizlemesi artış oranını hem **yüzde** hem **TL**
 olarak ayrı ayrı gösterir — reprice sonucunu kaydetmeden görmek isteyen müşteri için, §2'nin otomatik
@@ -224,7 +224,7 @@ offline akışı, şube kapsam kuralının hepsi doğrulandı, yeni/çelişen bi
 - **Geçmiş veriyi şubeye bağlama:** sistem daha önce şubesiz kullanıldıysa, şube kaydı ekranının
   **üst kısmındaki buton** ile geçmiş kayıtlar **Merkez** şubeye (veya seçilen şubeye) eşitlenir.
   Aynı kalıp depo tarafında da var — depo kartındaki **`Eşitle`** butonu (deposuz geçmiş hareketleri
-  bir depoya bağlar) → [native-yetenek-indeksi §8](native-yetenek-indeksi.md).
+  bir depoya bağlar) → [native-index §8](native-yetenek-indeksi.md).
 - **Offline veri al/gönder akışı:** ön koşul → şirket kaydında **"bu şirket için offline kullanıma
   izin ver"** (A-3) + offline makineye **Kontrol Paneli de kurulmalı** + giriş ekranında **offline
   modu** seçilerek girilmeli. Kullanım → `Diğer İşlemler > **Offline Veri Al/Gönder**` > **ana
@@ -266,7 +266,7 @@ bozuk** geldi, akış iskeleti güvenilir ama **hiçbir buton/menü adını ekra
 ## §8 — KVKK Anonimleştirme Playbook'u  `📹`
 
 **Amaç:** Saklama süresi dolmuş kişisel veriyi ham `DELETE` yerine **yerleşik anonimleştirme
-aracıyla** kalıcı olarak geri döndürülemez hale getirmek. → [native-yetenek-indeksi §5](native-yetenek-indeksi.md), [turkiye-uyumluluk (KVKK)](turkiye-uyumluluk.md).
+aracıyla** kalıcı olarak geri döndürülemez hale getirmek. → [native-index §5](native-yetenek-indeksi.md), [turkiye-uyumluluk (KVKK)](turkiye-uyumluluk.md).
 
 **Ön koşul:** Hangi kayıtların (tarih aralığı + tablo) anonimleştirileceği konusunda **müşteri/hukuk
 danışmanı kararı** — bu playbook kararı vermez, uygular. **Önce yedek.**

@@ -66,7 +66,7 @@ portu** girilir. Operatör `<Server IP>:<port>` adresine kullanıcı adı/şifre
 → yetkili olduğu iş merkezini seçer → Üretim Listesi'nde bekleyen/tamamlanan operasyonu görür → operasyona
 tıklayıp **başlat/bitir/durdur** (saat-tarih otomatik yazılır); aynı ekran % tamamlanma izleme panosu
 olarak da kullanılabilir. ⚠️ Çok şirketli kurulumda tarayıcı girişindeki şirket/yıl seçimi yanlış şirkete
-giriş riski taşır; port ayarları [native-yetenek-indeksi §10 WebConnect](native-yetenek-indeksi.md)'ten
+giriş riski taşır; port ayarları [native-index §10 WebConnect](native-yetenek-indeksi.md)'ten
 **ayrıdır** — farklı port çifti, farklı amaç (yalnız üretim/iş emri).
 
 **Fason İşlemleri — Normal / Birleştirme / Parçalama** `📹`: üç ekran da aynı iskelet — cari (fasoncu) seç
@@ -97,7 +97,7 @@ denetlenmeli (yoksa standart-dışı üründe kontrolsüz geçiş riski var). **
 geçirir — kontrol tarihi/saati + geliş tarihi/saati + Stok + Tedarikçi + **Sipariş Miktarı** (tedarikçiye
 verilen sipariş) + **Gelen Miktar** (fiilen gönderilen) + **Ölçüm Miktarı** + **Maksimum Red Miktarı** +
 **Onaylanmayan Miktar** (elle) → **Onaylanan Miktar otomatik hesaplanır**, tolerans içindeyse
-**"Parti Kabul"**e otomatik döner. ⚠️ Bu, [native-yetenek-indeksi §14](native-yetenek-indeksi.md)'teki
+**"Parti Kabul"**e otomatik döner. ⚠️ Bu, [native-index §14](native-yetenek-indeksi.md)'teki
 **Mal Kabul** ekranından farklı bir katman: Mal Kabul sipariş/irsaliye/fatura karşılaştırıp irsaliye
 oluşturur; Hammadde Giriş Kontrol miktar+kalite red oranını ölçüp partiyi kabul/red eder — muhtemelen Mal
 Kabul'den önce veya bağımsız çalışan bir kalite kapısı, sırası/entegrasyonu install'da teyit edilmeli.
@@ -284,6 +284,11 @@ Yönetimi serisi, 13 video):
   `📹`: kaydet > `İşlemler` > **Faturayı Aktar** (veya **İrsaliyeyi Aktar**) > fişi filtrele/seç >
   faturalandırma işlemi > belge türü seç > Kaydet. Teklif Formu'ndaki `Teklif İrsaliyelendir` /
   `Teklif Faturalandırma` (aşağıya bkz.) **aynı UI ailesi**.
+- **CRM sekmesi** (CRM modülü lisanslıysa) `📹`: Servis Fişi formunda ayrı bir **CRM** sekmesi bulunur
+  — buradan fişi bir **bağlı proje/satış kodu**na ve/veya bir **bağlı kampanya kodu**na bağlayabilirsin.
+  Yeni proje/satış veya kampanya tanımı gerekiyorsa aynı sekmedeki "Tanımlar" kısayolundan doğrudan
+  oluşturulabilir — forma çıkmadan tanım eklenebiliyor. CRM modülü lisansı yoksa bu sekme muhtemelen
+  görünmez (diğer form-videolarıyla aynı desen). → [native-index §15 CRM Modülü](native-yetenek-indeksi.md).
 - **Tanımlar tam listesi** `👤`: Hizmet Tanımı · Ürün Tanımı · İşlem Tanımı · Fiş Durum Tanımı · Paket
   Tanımı · Araç Tanımı · Servis Grubu Tanımı. **İşlemler > Dosya** (servis formuna dosya/görsel ekleme,
   DB'de saklanır — Fatura'daki aynı özelliğin servis karşılığı, native-index §3). **Raporlar dalı**:

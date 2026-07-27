@@ -130,6 +130,7 @@ Dal yapısı `✓ (8.25)`:
 | — Bakiye/Kredi sekmesi > **Devir Girişi** | `📹` | Açılış bakiyesi (borç/alacak) devir girişiyle işlenir (vergi no zorunlu) | sorun-giderme §6 · P21 |
 | — Bakiye/Kredi sekmesi > **Kredi Limitleri** | `👤` | `Bakiyeler` (TL + döviz) · **`Kredi Limitleri`** (açık hesap / sipariş / irsaliye / çek-senet ayrı ayrı + `Kredi Aşımında Uyar`) · **`Çek/Senet Limitleri`** | native-index §4 |
 | — **Bonus** sekmesi (Bonus Sistemi açıksa) | `👤` | Bonus tanımı seçimi + bonus bakiyesi | native-index §4 · Kampanya/Sadakat tablosu |
+| — **CRM** sekmesi (CRM modülü lisanslıysa) | `👤` | **Sektör** (CRM Sektör Tanımlarından veya manuel) · **Yıllık Kazanç** · **Çalışan Sayısı** · **Potansiyel Müşteri** durumu (lead/prospect) · **Rating** · **Kaynak** (lead source) · **Kampanya** eşleme · **Müşteri Listesi** | native-index §15 (CRM) |
 | — Üst menü: Yeni İşlem / Kopyala | `📹` | `Yeni İşlem` → fatura/teklif/sipariş/servis/tahsilat/ödeme · `İşlemler > Kopyala` (kartı çoğalt) · `Dosya` sekmesi (**Cari II** modülü) | — |
 | Ekstre / hesap özeti | `≈` | `Finans Yönetimi > Raporlar > İşlem Raporları ▸` (ekstre burada; ekranda teyit et) | sorun-giderme §3 · P7 |
 | Yaşlandırma (vade analizi) | `≈` | `8.25` menüsünde "Yaşlandırma" adıyla **görülmedi**; en yakınları `Raporlar > Bakiye Raporları > Bakiyeler Listesi` ve `Analizler > Cari Analizi` / `Finansal Analiz > Detaylı`. Vade kırılımı yoksa SQL ile ver | P9 |
@@ -167,6 +168,8 @@ modülde** yaşar; hangisini kullanacağını **yön** belirler (alış mı sat�
 | **Teklif → Servis Fişi** | `📹` | `Satış Yönetimi > İşlemler > Teklifler ▸ > **Teklif Servise Aktarım**` > teklifi seç > "Servise Aktar" | modul-derinlik §3 (Bağlantılar sekmesi) |
 | **Sipariş formu — vade kaynağı + grup** | `📹` | Vade alanı: Manuel/Varsayılan(`Genel Ayarlar > Sipariş Ayarları`)/Cari/Stok seçenekleri; gruplama: `Satış Yönetimi > Tanımlar > Sipariş Tanımları > **Sipariş Grubu Tanımları**` | native-index §14 |
 | **Teklif → Sipariş özel alan eşleme** | `📹` | `Teklif Bilgileri > **Özel Tanım Aktarma Ayarları**` — teklifteki özel alan ile siparişteki karşılığını eşleştirir (başlık/satır seçimi) | native-index §14 |
+| **Sipariş/İrsaliye formunu proje/satış veya kampanyaya bağla** (CRM lisanslıysa) | `📹` | `<Satış\|Satın Alma> Yönetimi > İşlemler > <Siparişler\|İrsaliyeler> ▸ > CRM sekmesi` > bağlı proje/satış kodu + bağlı kampanya kodu seç; tanım yoksa aynı sekmeden oluşturulabilir | native-index §15 (CRM) |
+| Siparişleri/İrsaliyeleri bağlı proje/satış koduna göre filtrele | `📹` | `Sipariş Raporu` / `İrsaliye Raporu` > Filtreleme Kriterleri > **Özel** sekmesi > bağlı proje/satış kodu | native-index §15 |
 | Satın alma talebi (siparişin üst akışı) | `👤` | `Satın Alma Yönetimi > … > **Satın Alma Talep Ekranı**` (+ `Satın Alma Talep Listesi` > `Satın Alma` > `Satın Alma Emri Ver` **veya** `Teklif` sekmesi > **e-Teklif İste** ile tedarikçi karşılaştırma — bkz. native-index §14) | native-index §14 |
 
 ## Teklif Formu sekmeleri
@@ -182,10 +185,10 @@ Teklif formunun sekme detayı önceden hiç belgeli değildi (round 2, resmî Se
 | Formda olmayan veri alanı ekle | `📹` | **Özel Tanımlar** > Kategori Adı + Alan Tanımı + veri tipi | Stok/Cari kartlarındaki "Özel Tanımlar" ile aynı native desen |
 | Çıktıda görünecek serbest not | `📹` | **Not** sekmesi | Çıktıda görünmesi için Aktif Rapor tasarımına elle eklenmeli (Servis Fişi Arıza sekmesiyle aynı desen) |
 | Ek açıklama + varsayılan depo + döviz | `📹` | **Ek Bilgiler 1**: Ek Bilgi 1/2 · Açıklama · **Varsayılan Depo** (+tüm satırlara aktar) · **Döviz Kullan** + birim + kur aktar · muhasebe cari hesabı seçimi | — |
-| Teklifi bir CRM projesine bağla | `📹` | **CRM** sekmesi (CRM lisanslıysa) > proje kodu seç | native-yetenek-indeksi §15 |
+| Teklifi bir CRM projesine bağla | `📹` | **CRM** sekmesi (CRM lisanslıysa) > proje kodu seç | native-index §15 |
 | Bloke/Termin miktarlarının anlamı | `📹` | **Stok Bakiyeleri** sekmesi: Bloke = **alınan teklif+sipariş**ten bloke edilen miktar; Termin = **verilen teklif+sipariş**ten termin edilecek miktar | Depo Bakiyeleri kolon adlarını (Stok Yönetimi tablosu) anlamca tamamlar |
 | Bir cariye önceden düzenlenmiş teklifleri hızlı görüntüle | `📹` | Teklif formu üst > **Eski Teklifler** | Fatura'daki `Eski Faturalar` ile aynı desen |
-| Teklifteki özel alandan otomatik yeni stok kartı oluştur | `📹` | İşlemler > **S Kart Oluşturma** | native-yetenek-indeksi §2 |
+| Teklifteki özel alandan otomatik yeni stok kartı oluştur | `📹` | İşlemler > **S Kart Oluşturma** | native-index §2 |
 | Tüm tekliflerini filtreli listele / süresi geçenleri bul | `👤` | `<Satış\|Satın Alma> Yönetimi > Raporlar > Teklif Raporları > **Teklif Raporu**` — Geçerlilik Tarihi/Teslim Süresi sütununa tıkla sırala | — |
 | Teklif durumu değişince personele uyarı ver | `👤` | `Tanımlar > Teklif Tanımları > **Teklif Durum Tanımları**` > durum bazında uyarılacak personel + yetki | modul-derinlik'teki Servis Fiş Durumu deseniyle aynı |
 
@@ -228,8 +231,8 @@ Bu yüzden `_WOLVOX` DB'sine bakıp "muhasebe kullanılmıyor" demek **yanlış 
 | Muhasebe entegrasyon ayarları | `✓ (8.25)` | `Yetkili > Tanımlar > Genel Ayarlar > **Genel Muhasebe**` | — |
 | Stok/cari kartın muhasebe kodu | `✓ (8.25)` | Stok kartı > **`Muhasebe`** sekmesi (cari kartta da muadili) | P5 |
 | Mizan · yevmiye · dönem sonu | `≈` | **Ayrı Genel Muhasebe uygulamasında** (`Diğer İşlemler > G.Muhasebe > Genel Muhasebe` ile aç) | P5 · P11 |
-| **GM uygulaması içi: Hesap Planı / KDV Tanımları / Fiş İşlemleri** | `👤` | Ayrı Genel Muhasebe uygulaması: **Hesap Planı** (Oluşturma + Excel'den) · **Tanımlar > KDV Tanımları** · **Fiş İşlemleri** (Açılış/Tahsil/Tediye/**Mahsup**/Kapanış — 5 tip) · **Transfer Dosyasından Fiş Oluştur** | GM'nin kendi iç yapısının ayrıntısı artık belgeli — native-yetenek-indeksi §6 |
-| ERP↔GM entegrasyon tipi (anlık/toplu, tek/çift fiş, depo/asorti hesap kodu) | `👤` | `Yetkili > Genel Ayarlar > Genel Muhasebe` sekmesi | native-yetenek-indeksi §6 (ayrıntılı) |
+| **GM uygulaması içi: Hesap Planı / KDV Tanımları / Fiş İşlemleri** | `👤` | Ayrı Genel Muhasebe uygulaması: **Hesap Planı** (Oluşturma + Excel'den) · **Tanımlar > KDV Tanımları** · **Fiş İşlemleri** (Açılış/Tahsil/Tediye/**Mahsup**/Kapanış — 5 tip) · **Transfer Dosyasından Fiş Oluştur** | GM'nin kendi iç yapısının ayrıntısı artık belgeli — native-index §6 |
+| ERP↔GM entegrasyon tipi (anlık/toplu, tek/çift fiş, depo/asorti hesap kodu) | `👤` | `Yetkili > Genel Ayarlar > Genel Muhasebe` sekmesi | native-index §6 (ayrıntılı) |
 
 ## Üretim / Reçete *(edisyona bağlı — yoksa üst menüde hiç görünmez)*
 ⚠️ `8.25` saha koşusundaki sektörel pakette **Üretim üst menüsü yoktu**. Üretim modülünün varlığı
@@ -247,7 +250,7 @@ Bu yüzden `_WOLVOX` DB'sine bakıp "muhasebe kullanılmıyor" demek **yanlış 
 | Kural-tabanlı fiyat/iskonto (kampanya muadili) | `✓ (8.25)` | `Genel Ayarlar > Stok Ayarları > Genel > **Gelişmiş Satış Fiyatı Sistemi** / **Gelişmiş İskonto Sistemi**` (+ miktar aralığına göre iskonto) |
 | Müşteriye özel iskonto/fiyat listesi | `📹` | Cari kartı > `Hesap Bilgileri` > özel iskonto % + fiyat no |
 | Kart bazlı iskonto | `✓ (8.25)` | Stok kartı > `Özel Ayarlar 1` > Alış/Satış İskontoları |
-| Kampanya/promosyon · sadakat/puan modülü | `≈` | Bu pakette **yok**; edisyona bağlı — kullanıcının menüsünde ara |
+| **Kampanya/promosyon modülü** (round 2'de netleşti) | `📹` | `CRM modülü > Tanımlar > Kampanya Tanımları`: kod+isim+tip+tarih+durum+Tahmini/Gerçek Değerler > **Hedef Kitle** sekmesinden cari ekle | Kampanya modülü "yok" değil, **CRM lisansının altında** — 8.25'teki sektörel pakette CRM lisansı yoktu, bu yüzden görünmedi; CRM'li kurulumda buradan erişilir (native-index §15) |
 | **Bonus (sadakat) tanımları** | `👤` | `Finans Yönetimi > Tanımlar > **Bonus Tanımları**` — `8.25` saha listesinde görülmedi, edisyona bağlı olabilir (native-index §4) |
 | Bonus sistemi anahtarı + matrah + ödeme türü | `👤` | `Yetkili > Tanımlar > Genel Ayarlar > **Cari Ayarları > Cari Kart Ayarları**` > `Bonus Sistemi Kullan` · fatura bonus matrahı · bonus ödeme türü (native-index §4) |
 
@@ -377,5 +380,5 @@ Koşuda **yeni keşfedilen, skill'de hiç geçmeyen** yetenekler (hepsi native, 
 · Sipariş · Banka) · `Genel Ayarlar`ın kalan grupları (İrsaliye/Sipariş/Teklif/Çek-Senet/Banka/
 Parasal/Program) · Kontrol Paneli (yedek + devir) · ayrı Genel Muhasebe uygulaması (round 2'de
 video-kaynaklı olarak büyük ölçüde kapatıldı — hesap planı/KDV/fiş tipleri/entegrasyon, bkz.
-native-yetenek-indeksi §6) · CRM Modülü üst-menü konumu (native-yetenek-indeksi §15) · Kartotek
+native-index §6) · CRM Modülü üst-menü konumu (native-index §15) · Kartotek
 modülüne giden üst menü ağacı.
