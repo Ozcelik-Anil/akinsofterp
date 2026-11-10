@@ -36,18 +36,18 @@ Pick the snippet for your shell — each downloads the repo straight into your C
 
 **macOS / Linux / WSL (bash, git):**
 ```bash
-git clone https://github.com/smurfspec/akinsofterp.git ~/.claude/skills/akinsofterp
+git clone https://github.com/Ozcelik-Anil/akinsofterp.git ~/.claude/skills/akinsofterp
 ```
 
 **Windows (PowerShell, git):**
 ```powershell
-git clone https://github.com/smurfspec/akinsofterp.git "$env:USERPROFILE\.claude\skills\akinsofterp"
+git clone https://github.com/Ozcelik-Anil/akinsofterp.git "$env:USERPROFILE\.claude\skills\akinsofterp"
 ```
 
 **No git available (bash, tarball download):**
 ```bash
 mkdir -p ~/.claude/skills && \
-curl -L https://github.com/smurfspec/akinsofterp/archive/refs/heads/master.tar.gz \
+curl -L https://github.com/Ozcelik-Anil/akinsofterp/archive/refs/heads/master.tar.gz \
   | tar -xz -C ~/.claude/skills/ && \
 mv ~/.claude/skills/akinsofterp-master ~/.claude/skills/akinsofterp
 ```
@@ -56,7 +56,7 @@ mv ~/.claude/skills/akinsofterp-master ~/.claude/skills/akinsofterp
 ```powershell
 $dest = "$env:USERPROFILE\.claude\skills"
 New-Item -ItemType Directory -Force -Path $dest | Out-Null
-Invoke-WebRequest -Uri "https://github.com/smurfspec/akinsofterp/archive/refs/heads/master.zip" -OutFile "$env:TEMP\akinsofterp.zip"
+Invoke-WebRequest -Uri "https://github.com/Ozcelik-Anil/akinsofterp/archive/refs/heads/master.zip" -OutFile "$env:TEMP\akinsofterp.zip"
 Expand-Archive -Path "$env:TEMP\akinsofterp.zip" -DestinationPath $dest -Force
 Rename-Item "$dest\akinsofterp-master" "akinsofterp"
 ```
@@ -164,18 +164,18 @@ Kabuğunuza uygun parçayı seçin — her biri repoyu doğrudan Claude Code ski
 
 **macOS / Linux / WSL (bash, git):**
 ```bash
-git clone https://github.com/smurfspec/akinsofterp.git ~/.claude/skills/akinsofterp
+git clone https://github.com/Ozcelik-Anil/akinsofterp.git ~/.claude/skills/akinsofterp
 ```
 
 **Windows (PowerShell, git):**
 ```powershell
-git clone https://github.com/smurfspec/akinsofterp.git "$env:USERPROFILE\.claude\skills\akinsofterp"
+git clone https://github.com/Ozcelik-Anil/akinsofterp.git "$env:USERPROFILE\.claude\skills\akinsofterp"
 ```
 
 **Git yoksa (bash, tarball indirme):**
 ```bash
 mkdir -p ~/.claude/skills && \
-curl -L https://github.com/smurfspec/akinsofterp/archive/refs/heads/master.tar.gz \
+curl -L https://github.com/Ozcelik-Anil/akinsofterp/archive/refs/heads/master.tar.gz \
   | tar -xz -C ~/.claude/skills/ && \
 mv ~/.claude/skills/akinsofterp-master ~/.claude/skills/akinsofterp
 ```
@@ -184,7 +184,7 @@ mv ~/.claude/skills/akinsofterp-master ~/.claude/skills/akinsofterp
 ```powershell
 $dest = "$env:USERPROFILE\.claude\skills"
 New-Item -ItemType Directory -Force -Path $dest | Out-Null
-Invoke-WebRequest -Uri "https://github.com/smurfspec/akinsofterp/archive/refs/heads/master.zip" -OutFile "$env:TEMP\akinsofterp.zip"
+Invoke-WebRequest -Uri "https://github.com/Ozcelik-Anil/akinsofterp/archive/refs/heads/master.zip" -OutFile "$env:TEMP\akinsofterp.zip"
 Expand-Archive -Path "$env:TEMP\akinsofterp.zip" -DestinationPath $dest -Force
 Rename-Item "$dest\akinsofterp-master" "akinsofterp"
 ```
